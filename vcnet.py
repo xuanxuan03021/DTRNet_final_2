@@ -24,11 +24,14 @@ class Truncated_power():
 
     def forward(self, x):
         """
+        #x is the treatment dim=1
         :param x: torch.tensor, batch_size * 1
         :return: the value of each basis given x; batch_size * self.num_of_basis
         """
         x = x.squeeze()
+        #dim=1*5
         out = torch.zeros(x.shape[0], self.num_of_basis)
+        #degree=2
         for _ in range(self.num_of_basis):
             if _ <= self.degree:
                 if _ == 0:
@@ -211,7 +214,11 @@ class Vcnet(nn.Module):
         hidden = self.hidden_features(x)
         t_hidden = torch.cat((torch.unsqueeze(t, 1), hidden), 1)
         #t_hidden = torch.cat((torch.unsqueeze(t, 1), x), 1)
+
+        #general propensity score
         g = self.density_estimator_head(t, hidden)
+
+        #outcome
         Q = self.Q(t_hidden)
 
         return g, Q
