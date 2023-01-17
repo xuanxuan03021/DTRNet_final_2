@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from data.data import get_iter
+#from data.data import get_iter
 
 class Truncated_power():
     def __init__(self, degree, knots):
@@ -92,7 +92,7 @@ class Dynamic_FC(nn.Module):
         out = torch.sum(x_feature_weight * x_treat_basis_, dim=2) # bs, outd
 
         if self.isbias:
-            out_bias = torch.matmul(self.bias, x_treat_basis.T).T
+            out_bias = torch.matmul(self.bias, x_treat_basis.T).T #bs,outd
             out = out + out_bias
 
         if self.act is not None:
@@ -171,6 +171,7 @@ class Vcnet(nn.Module):
         self.cfg = cfg
         self.degree = degree
         self.knots = knots
+
 
         # construct the density estimator
         density_blocks = []
