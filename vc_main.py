@@ -83,7 +83,7 @@ if __name__ == "__main__":
     data = pd.read_csv(load_path + '/t_grid.txt', header=None, sep=' ')
     t_grid = torch.from_numpy(data.to_numpy()).float()
 
-    train_loader = get_iter(train_matrix, batch_size=500, shuffle=True)
+    train_loader = get_iter(train_matrix, batch_size=batch_size, shuffle=True)
     test_loader = get_iter(test_matrix, batch_size=test_matrix.shape[0], shuffle=False)
 
     grid = []
@@ -257,4 +257,3 @@ if __name__ == "__main__":
         plt.ylabel('Response', font1)
 
         plt.savefig(save_path + "/Vc_Dr.pdf", bbox_inches='tight')
-Footer

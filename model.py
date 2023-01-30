@@ -76,6 +76,8 @@ class Dynamic_FC(nn.Module):
             self.act = nn.Tanh()
         elif act == 'sigmoid':
             self.act = nn.Sigmoid()
+        elif act == 'leakyrelu':
+            self.act = nn.LeakyReLU()
         else:
             self.act = None
 
@@ -123,8 +125,10 @@ class Black_box_model(nn.Module):
                 density_blocks.append(nn.Tanh())
             elif layer_cfg[3] == 'sigmoid':
                 density_blocks.append(nn.Sigmoid())
+            elif layer_cfg[3]=='leakyrelu':
+                density_blocks.append(nn.LeakyReLU())
             else:
-                print('No activation')
+                density_blocks.append(nn.Identity())
         self.model=nn.Sequential(*density_blocks)
     def forward(self,x):
         y=self.model(x)
@@ -178,9 +182,10 @@ class iCXAI_model(nn.Module):
                 density_blocks.append(nn.Tanh())
             elif layer_cfg[3] == 'sigmoid':
                 density_blocks.append(nn.Sigmoid())
+            elif layer_cfg[3]=='leakyrelu':
+                density_blocks.append(nn.LeakyReLU())
             else:
-                print('No activation')
-
+                density_blocks.append(nn.Identity())
         if continous_t==1:
             density_blocks=density_blocks[:-2]
             Model_last_layer = nn.Sequential(*(density_blocks))
@@ -217,14 +222,25 @@ class iCXAI_model(nn.Module):
     def _initialize_weights(self):
         # TODO: maybe add more distribution for initialization
         for m in self.modules():
+            # if isinstance(m, Dynamic_FC):
+            #     #m.weight.data.normal_(0, 0.01)
+            #     torch.nn.init.xavier_uniform_(m.weight)
+            #
+            #     if m.isbias:
+            #         #m.bias.data.zero_()
+            #         m.bias.data.fill_(0.01)
             if isinstance(m, Dynamic_FC):
-                m.weight.data.normal_(0, 1.)
+                m.weight.data.normal_(0, 1)
                 if m.isbias:
                     m.bias.data.zero_()
             elif isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, 0.01)
+               # m.weight.data.normal_(0, 0.01)
+                torch.nn.init.xavier_uniform_(m.weight)
+
                 if m.bias is not None:
-                    m.bias.data.zero_()
+                   # m.bias.data.zero_()
+                   m.bias.data.fill_(0.01)
+
             # elif isinstance(m, Density_Block):
             #     m.weight.data.normal_(0, 0.01)
             #     if m.isbias:

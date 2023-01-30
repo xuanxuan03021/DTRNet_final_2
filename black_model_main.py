@@ -113,11 +113,11 @@ if __name__ == '__main__':
     loader_train, loader_test = return_loaders(data_name="synthetic", batch_size=5,gauss_params=gauss_params)
     model = Black_box_model(cfg_rep=cfg_rep)
     data_iter = iter(loader_test)
-    data = next(data_iter)
-    print(data)
-    input()
+
+    inputs, labels = data_iter.next()
     labels = labels.type(torch.int64)
 
+    data_all = torch.FloatTensor(loader_train.dataset.data)
 
     model = model.cuda()
     #model = torch.nn.parallel.DataParallel(model, device_ids=device_ids, dim=0)
@@ -152,7 +152,6 @@ if __name__ == '__main__':
     lime_discretize_continuous = False
     lime_standard_deviation = float(np.sqrt(0.03))
 
-    data_all = torch.FloatTensor(loader_train.dataset.data)
     # You can supply your own set of hyperparameters like so:
     param_dict_lime = dict()
     param_dict_lime['dataset_tensor'] = data_all
@@ -166,7 +165,10 @@ if __name__ == '__main__':
                      model=model,
                      dataset_tensor=data_all,
                      param_dict_lime=param_dict_lime)
+    shap=Explainer(method='shap',
+                     model=model,
+                     dataset_tensor=data_all)
 
-    lime_custom = lime.get_explanation(inputs_batch,
+    lime_custom = lime.get_explanation(inputs,
                                        label=labels)
     print(lime_custom)
