@@ -214,7 +214,6 @@ class Vcnet(nn.Module):
         Model = nn.Sequential(*density_blocks)
         # Model = nn.Linear(in_features=6, out_features=50)
 
-        print("creation ", time.time() - start_create)
         return Model
 
     def forward(self, t, x):

@@ -51,7 +51,7 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
 
     '''reweight'''
     reweight=1/(out[0]+ epsilon)
-
+   # reweight = 1
     '''factual loss'''
     factual_loss=(reweight*((out[1].squeeze() - y.cuda().squeeze())**2)).mean()
 
@@ -92,7 +92,7 @@ def criterion_TR(out, trg, y, beta=1., epsilon=1e-6):
 
 if __name__ == "__main__":
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,7"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "1,2,7"
 
     use_cuda = torch.cuda.is_available()
     torch.manual_seed(1314)
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     print(use_cuda)
     # os.environ["CUDA_LAUNCH_BLOCKING"] = '1'
 
-    device_ids = [0,1,2,3]
+    device_ids = [1]
 
     if use_cuda:
         print('__CUDNN VERSION:', torch.backends.cudnn.version())
@@ -114,6 +114,7 @@ if __name__ == "__main__":
     # i/o
     parser.add_argument('--data_dir', type=str, default='dataset/news', help='dir of data matrix')
     parser.add_argument('--data_split_dir', type=str, default='dataset/news/eval', help='dir of data split')
+   # parser.add_argument('--data_split_dir', type=str, default='dataset/news/tune', help='dir of data split')
     parser.add_argument('--save_dir', type=str, default='logs/news/eval', help='dir to save result')
     # common
     parser.add_argument('--num_dataset', type=int, default=10, help='num of datasets to train')
@@ -123,6 +124,7 @@ if __name__ == "__main__":
 
     # print train info
     parser.add_argument('--verbose', type=int, default=10, help='print train info freq')
+
 
     args = parser.parse_args()
 
@@ -169,9 +171,9 @@ if __name__ == "__main__":
             model._initialize_weights()
 
         if model_name == 'Vcnet_disentangled':
-            init_lr = 0.00002
-            alpha = 0.2
-            beta=0.2
+            init_lr = 0.00001
+            alpha = 0.4
+            beta=0
             gamma=0.2
             Result['Vcnet_disentangled'] = []
 
@@ -228,14 +230,14 @@ if __name__ == "__main__":
             print('current loss: ', float(loss.data))
             print('current test loss: ', mse)
             print('-----------------------------------------------------------------')
-            # save_checkpoint({
-            #     'model': model_name,
-            #     'best_test_loss': mse,
-            #     'model_state_dict': model.state_dict(),
-            # }, model_name=model_name, checkpoint_dir=cur_save_path)
+            save_checkpoint({
+                'model': model_name,
+                'best_test_loss': mse,
+                'model_state_dict': model.state_dict(),
+            }, model_name=model_name+"no_beta", checkpoint_dir=cur_save_path)
             print('-----------------------------------------------------------------')
 
             Result[model_name].append(mse)
-            #
-            with open(save_path + '/result_ivc.json', 'w') as fp:
-                json.dump(Result, fp)
+            # #
+            # with open(save_path + '/result_ivc_50_no_reweight.json', 'w') as fp:
+            #     json.dump(Result, fp)

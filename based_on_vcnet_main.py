@@ -51,7 +51,7 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
 
     '''reweight'''
     reweight=1/(out[0]+ epsilon)
-
+   # reweight=1
     '''factual loss'''
     factual_loss=(reweight*((out[1].squeeze() - y.cuda().squeeze())**2)).mean()
 
@@ -114,9 +114,11 @@ if __name__ == "__main__":
     # i/o
     parser.add_argument('--data_dir', type=str, default='dataset/simu1/eval', help='dir of eval dataset')
     parser.add_argument('--save_dir', type=str, default='logs/simu1/eval', help='dir to save result')
+    # parser.add_argument('--data_dir', type=str, default='dataset/simu1/tune', help='dir of eval dataset')
+    # parser.add_argument('--save_dir', type=str, default='logs/simu1/tune', help='dir to save result')
 
     # common
-    parser.add_argument('--num_dataset', type=int, default=10, help='num of datasets to train')
+    parser.add_argument('--num_dataset', type=int, default=1, help='num of datasets to train')
 
     # training
     parser.add_argument('--n_epochs', type=int, default=800, help='num of epochs to train')
@@ -165,10 +167,10 @@ if __name__ == "__main__":
             model._initialize_weights()
 
         if model_name == 'Vcnet_disentangled':
-            init_lr = 0.0001
-            alpha = 0.2
+            init_lr = 0.00001
+            alpha = 0.6
             beta=0.2
-            gamma=0.2
+            gamma=0.6
 
             Result['Vcnet_disentangled'] = []
 
@@ -201,7 +203,7 @@ if __name__ == "__main__":
 
 
 
-                for idx, (inputs, y) in enumerate(train_loader):
+                for idx, (inputs, y) in enumerate( ):
                     start = time.time()
                     t = inputs[:, 0].cuda()
                     x = inputs[:, 1:].cuda()
@@ -232,14 +234,14 @@ if __name__ == "__main__":
             print('current loss: ', float(loss.data))
             print('current test loss: ', mse)
             print('-----------------------------------------------------------------')
-            # save_checkpoint({
-            #     'model': model_name,
-            #     'best_test_loss': mse,
-            #     'model_state_dict': model.state_dict(),
-            # }, model_name=model_name, checkpoint_dir=cur_save_path)
+            save_checkpoint({
+                'model': model_name,
+                'best_test_loss': mse,
+                'model_state_dict': model.state_dict(),
+            }, model_name=model_name+"no_beta", checkpoint_dir=cur_save_path)
             print('-----------------------------------------------------------------')
 
             Result[model_name].append(mse)
-            #
-            with open(save_path + '/result_ivc.json', 'w') as fp:
-                json.dump(Result, fp)
+            # #
+            # with open(save_path + '/result_ivc_50_no_gamma.json', 'w') as fp:
+            #     json.dump(Result, fp)

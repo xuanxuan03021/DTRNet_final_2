@@ -51,6 +51,7 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
 
     '''reweight'''
     reweight=1/(out[0]+ epsilon)
+   # reweight=1
 
     '''factual loss'''
     factual_loss=(reweight*((out[1].squeeze() - y.cuda().squeeze())**2)).mean()
@@ -119,10 +120,11 @@ if __name__ == "__main__":
     parser.add_argument('--num_dataset', type=int, default=10, help='num of datasets to train')
 
     # training
-    parser.add_argument('--n_epochs', type=int, default=1200, help='num of epochs to train')
+    parser.add_argument('--n_epochs', type=int, default=800, help='num of epochs to train')
 
     # print train info
     parser.add_argument('--verbose', type=int, default=10, help='print train info freq')
+
 
     args = parser.parse_args()
 
@@ -171,9 +173,9 @@ if __name__ == "__main__":
 
         if model_name == 'Vcnet_disentangled':
             init_lr = 0.00005
-            alpha = 0.2
-            beta=0.2
-            gamma=0.2
+            alpha = 0.4
+            beta=0.6
+            gamma=0.4
             Result['Vcnet_disentangled'] = []
 
         for _ in range(num_dataset):
@@ -191,10 +193,10 @@ if __name__ == "__main__":
 
             # train_matrix, test_matrix, t_grid = simu_data1(500, 200)
             train_loader = get_iter(data_matrix[idx_train, :], batch_size=471, shuffle=True)
-            test_loader = get_iter(data_matrix[idx_test, :], batch_size=data_matrix[idx_test, :].shape[0], shuffle=False)
 
             # reinitialize model
             model._initialize_weights()
+            test_loader = get_iter(test_matrix, batch_size=test_matrix.shape[0], shuffle=False)
 
             # define optimizer
             optimizer = torch.optim.SGD(model.parameters(), lr=init_lr, momentum=momentum, weight_decay=wd, nesterov=True)
@@ -202,8 +204,6 @@ if __name__ == "__main__":
             print('model : ', model_name)
 
             for epoch in range(num_epoch):
-
-
 
                 for idx, (inputs, y) in enumerate(train_loader):
                     t = inputs[:, 0].cuda()
@@ -233,14 +233,14 @@ if __name__ == "__main__":
             print('current loss: ', float(loss.data))
             print('current test loss: ', mse)
             print('-----------------------------------------------------------------')
-            # save_checkpoint({
-            #     'model': model_name,
-            #     'best_test_loss': mse,
-            #     'model_state_dict': model.state_dict(),
-            # }, model_name=model_name, checkpoint_dir=cur_save_path)
+            save_checkpoint({
+                'model': model_name,
+                'best_test_loss': mse,
+                'model_state_dict': model.state_dict(),
+            }, model_name=model_name, checkpoint_dir=cur_save_path)
             print('-----------------------------------------------------------------')
 
             Result[model_name].append(mse)
-            #
-            with open(save_path + '/result_ivc.json', 'w') as fp:
-                json.dump(Result, fp)
+            # #
+            # with open(save_path + '/result_ivc_50_no_gamma.json', 'w') as fp:
+            #     json.dump(Result, fp)
