@@ -11,8 +11,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='generate news data')
     parser.add_argument('--data_path', type=str, default='dataset/news/news_pp.npy', help='data path')
     parser.add_argument('--save_dir', type=str, default='dataset/news', help='dir to save generated data')
-    parser.add_argument('--num_eval', type=int, default=10, help='num of dataset for evaluating the methods')
-    parser.add_argument('--num_tune', type=int, default=2, help='num of dataset for tuning the parameters')
+    parser.add_argument('--num_eval', type=int, default=50, help='num of dataset for evaluating the methods')
+    parser.add_argument('--num_tune', type=int, default=20, help='num of dataset for tuning the parameters')
 
     args = parser.parse_args()
     save_path = args.save_dir
