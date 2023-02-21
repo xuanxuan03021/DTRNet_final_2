@@ -51,7 +51,8 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
 
     '''reweight'''
     reweight=1/(out[0]+ epsilon)
-   # reweight=1
+    reweight=0.7*reweight
+
     '''factual loss'''
     factual_loss=(reweight*((out[1].squeeze() - y.cuda().squeeze())**2)).mean()
 
@@ -112,13 +113,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='train with simulate data')
 
     # i/o
-    parser.add_argument('--data_dir', type=str, default='dataset/simu1/eval', help='dir of eval dataset')
-    parser.add_argument('--save_dir', type=str, default='logs/simu1/eval', help='dir to save result')
-    # parser.add_argument('--data_dir', type=str, default='dataset/simu1/tune', help='dir of eval dataset')
-    # parser.add_argument('--save_dir', type=str, default='logs/simu1/tune', help='dir to save result')
-
+    parser.add_argument('--data_dir', type=str, default='dataset/ihdp', help='dir of data matrix')
+    parser.add_argument('--data_split_dir', type=str, default='dataset/ihdp/eval', help='dir of data split')
+    parser.add_argument('--save_dir', type=str, default='logs/ihdp/eval', help='dir to save result')
     # common
-    parser.add_argument('--num_dataset', type=int, default=1, help='num of datasets to train')
+    parser.add_argument('--num_dataset', type=int, default=50, help='num of datasets to train')
 
     # training
     parser.add_argument('--n_epochs', type=int, default=800, help='num of epochs to train')
@@ -126,23 +125,27 @@ if __name__ == "__main__":
     # print train info
     parser.add_argument('--verbose', type=int, default=10, help='print train info freq')
 
+
     args = parser.parse_args()
 
+    seed = 0
+    torch.manual_seed(seed)
+    np.random.seed(seed)
     # fixed parameter for optimizer
     lr_type = 'fixed'
     wd = 5e-3
     momentum = 0.9
 
     # targeted regularization optimizer
-    tr_wd = 5e-3
+    tr_wd = 1e-3
 
     num_epoch = args.n_epochs
 
     # check val loss
     verbose = args.verbose
 
-    # data
-    load_path = args.data_dir
+    # load
+    load_path = args.data_split_dir
     num_dataset = args.num_dataset
 
     # save
@@ -150,6 +153,8 @@ if __name__ == "__main__":
     if not os.path.exists(save_path):
         os.makedirs(save_path)
 
+    data_matrix = torch.load(args.data_dir + '/data_matrix.pt')
+    t_grid_all = torch.load(args.data_dir + '/t_grid.pt')
 
     Result = {}
     for model_name in [ 'Vcnet_disentangled']:
@@ -157,7 +162,7 @@ if __name__ == "__main__":
     #for model_name in ['Tarnet', 'Tarnet_tr', 'Drnet', 'Drnet_tr', 'Vcnet', 'Vcnet_tr']:
         Result[model_name]=[]
         if model_name == 'Vcnet_disentangled':
-            cfg_density = [(6, 50, 1, 'relu'), (50, 50, 1, 'relu')]
+            cfg_density = [(25, 50, 1, 'relu'), (50, 50, 1, 'relu')]
             num_grid = 10
             cfg = [(100, 50, 1, 'relu'), (50, 1, 1, 'id')]
             degree = 2
@@ -167,11 +172,10 @@ if __name__ == "__main__":
             model._initialize_weights()
 
         if model_name == 'Vcnet_disentangled':
-            init_lr = 0.00001
+            init_lr = 0.00005
             alpha = 0.6
-            beta=0.2
-            gamma=0.6
-
+            beta=0.6
+            gamma=0.1
             Result['Vcnet_disentangled'] = []
 
         for _ in range(num_dataset):
@@ -180,19 +184,19 @@ if __name__ == "__main__":
             if not os.path.exists(cur_save_path):
                 os.makedirs(cur_save_path)
 
-            data = pd.read_csv(load_path + '/' + str(_) + '/train.txt', header=None, sep=' ')
-            train_matrix = torch.from_numpy(data.to_numpy()).float()
-            data = pd.read_csv(load_path + '/' + str(_) + '/test.txt', header=None, sep=' ')
-            test_matrix = torch.from_numpy(data.to_numpy()).float()
-            data = pd.read_csv(load_path + '/' + str(_) + '/t_grid.txt', header=None, sep=' ')
-            t_grid = torch.from_numpy(data.to_numpy()).float()
+            idx_train = torch.load('dataset/ihdp/eval/' + str(_) + '/idx_train.pt')
+            idx_test = torch.load('dataset/ihdp/eval/' + str(_) + '/idx_test.pt')
+
+            train_matrix = data_matrix[idx_train, :]
+            test_matrix = data_matrix[idx_test, :]
+            t_grid = t_grid_all[:, idx_test]
 
             # train_matrix, test_matrix, t_grid = simu_data1(500, 200)
-            train_loader = get_iter(train_matrix, batch_size=500, shuffle=True)
-            test_loader = get_iter(test_matrix, batch_size=test_matrix.shape[0], shuffle=False)
+            train_loader = get_iter(data_matrix[idx_train, :], batch_size=471, shuffle=True)
 
             # reinitialize model
             model._initialize_weights()
+            test_loader = get_iter(test_matrix, batch_size=test_matrix.shape[0], shuffle=False)
 
             # define optimizer
             optimizer = torch.optim.SGD(model.parameters(), lr=init_lr, momentum=momentum, weight_decay=wd, nesterov=True)
@@ -201,21 +205,16 @@ if __name__ == "__main__":
 
             for epoch in range(num_epoch):
 
-
-
-                for idx, (inputs, y) in enumerate(train_loader ):
-                    start = time.time()
+                for idx, (inputs, y) in enumerate(train_loader):
                     t = inputs[:, 0].cuda()
                     x = inputs[:, 1:].cuda()
 
                     optimizer.zero_grad()
                     out = model.forward(t, x)
-                    after_forward = time.time()
                     #print("forward ", after_forward - start)
                     loss,factual_loss,treatment_loss,discrepancy_loss,imbalance_loss = criterion(out, y, alpha=alpha, beta=beta,gamma=gamma)
                     loss.backward()
                     optimizer.step()
-                    after_backward = time.time()
                     #print("after backward ", after_backward - after_forward)
                     # if epoch == 1:
                     #     input()
@@ -233,15 +232,15 @@ if __name__ == "__main__":
             mse = float(mse)
             print('current loss: ', float(loss.data))
             print('current test loss: ', mse)
-            print('-----------------------------------------------------------------')
-            save_checkpoint({
-                'model': model_name,
-                'best_test_loss': mse,
-                'model_state_dict': model.state_dict(),
-            }, model_name=model_name+"no_beta", checkpoint_dir=cur_save_path)
-            print('-----------------------------------------------------------------')
+            # print('-----------------------------------------------------------------')
+            # save_checkpoint({
+            #     'model': model_name,
+            #     'best_test_loss': mse,
+            #     'model_state_dict': model.state_dict(),
+            # }, model_name=model_name, checkpoint_dir=cur_save_path)
+            # print('-----------------------------------------------------------------')
 
             Result[model_name].append(mse)
             # #
-            # with open(save_path + '/result_ivc_50_no_gamma.json', 'w') as fp:
-            #     json.dump(Result, fp)
+            with open(save_path + '/result_ivc_50_07_reweight.json', 'w') as fp:
+                json.dump(Result, fp)

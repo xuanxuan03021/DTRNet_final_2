@@ -51,7 +51,7 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
 
     '''reweight'''
     reweight=1/(out[0]+ epsilon)
-   # reweight=1
+    reweight=1.5*reweight
 
     '''factual loss'''
     factual_loss=(reweight*((out[1].squeeze() - y.cuda().squeeze())**2)).mean()
@@ -117,7 +117,7 @@ if __name__ == "__main__":
     parser.add_argument('--data_split_dir', type=str, default='dataset/ihdp/eval', help='dir of data split')
     parser.add_argument('--save_dir', type=str, default='logs/ihdp/eval', help='dir to save result')
     # common
-    parser.add_argument('--num_dataset', type=int, default=10, help='num of datasets to train')
+    parser.add_argument('--num_dataset', type=int, default=50, help='num of datasets to train')
 
     # training
     parser.add_argument('--n_epochs', type=int, default=800, help='num of epochs to train')
@@ -173,9 +173,9 @@ if __name__ == "__main__":
 
         if model_name == 'Vcnet_disentangled':
             init_lr = 0.00005
-            alpha = 0.4
+            alpha = 0.6
             beta=0.6
-            gamma=0.4
+            gamma=0.1
             Result['Vcnet_disentangled'] = []
 
         for _ in range(num_dataset):
@@ -237,10 +237,10 @@ if __name__ == "__main__":
                 'model': model_name,
                 'best_test_loss': mse,
                 'model_state_dict': model.state_dict(),
-            }, model_name=model_name, checkpoint_dir=cur_save_path)
+            }, model_name=model_name+"no_beta", checkpoint_dir=cur_save_path)
             print('-----------------------------------------------------------------')
 
             Result[model_name].append(mse)
             # #
-            # with open(save_path + '/result_ivc_50_no_gamma.json', 'w') as fp:
-            #     json.dump(Result, fp)
+            with open(save_path + '/result_ivc_50_15reweight.json', 'w') as fp:
+                json.dump(Result, fp)

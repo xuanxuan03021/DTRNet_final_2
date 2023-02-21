@@ -44,7 +44,7 @@ if __name__ == "__main__":
     # parser.add_argument('--save_dir', type=str, default='logs/simu1/tune', help='dir to save result')
 
     # common
-    parser.add_argument('--num_dataset', type=int, default=1, help='num of datasets to train')
+    parser.add_argument('--num_dataset', type=int, default=3, help='num of datasets to train')
 
     # training
     parser.add_argument('--n_epochs', type=int, default=800, help='num of epochs to train')
@@ -88,10 +88,10 @@ if __name__ == "__main__":
             cfg = [(100, 50, 1, 'relu'), (50, 1, 1, 'id')]
             degree = 2
             knots = [0.33, 0.66]
-            model_initial = Vcnet(cfg_density, num_grid, cfg, degree, knots).cuda()
+           # model_initial = Vcnet(cfg_density, num_grid, cfg, degree, knots).cuda()
             model_trained = Vcnet(cfg_density, num_grid, cfg, degree, knots).cuda()
 
-            print(model_initial)
+           # print(model_initial)
 
         if model_name == 'Vcnet_disentangled':
             init_lr = 0.00001
@@ -119,86 +119,256 @@ if __name__ == "__main__":
             test_loader = get_iter(test_matrix, batch_size=test_matrix.shape[0], shuffle=False)
 
             # reinitialize model
-            model_initial._initialize_weights()
+            # model_initial._initialize_weights()
             model_trained._initialize_weights()
 
             # to load
-            checkpoint = torch.load('logs/simu1/eval/0/Vcnet_disentangled_ckpt.pth.tar')
+            checkpoint = torch.load('logs/simu1/eval/' + str(_) + '/Vcnet_disentangled_ckpt.pth.tar')
             model_trained.load_state_dict(checkpoint['model_state_dict'])
 
 
-            checkpoint = torch.load('logs/simu1/eval/0/Vcnet_disentangledno_beta_ckpt.pth.tar')
-            model_initial.load_state_dict(checkpoint['model_state_dict'])
-
+            # checkpoint = torch.load('logs/simu1/eval/' + str(_) + '/Vcnet_disentangledno_beta_ckpt.pth.tar')
+            # model_initial.load_state_dict(checkpoint['model_state_dict'])
+            #
 
             for idx, (inputs, y) in enumerate(test_loader):
                 t = inputs[:, 0].cuda()
                 x = inputs[:, 1:].cuda()
                 break
-            g, Q,gamma,delta,psi,g_psi = model_initial.forward(t, x)
+        #    g, Q,gamma,delta,psi,g_psi = model_initial.forward(t, x)
             g_trained, Q_trained,gamma_trained,delta_trained,psi_trained,g_psi_trained = model_trained.forward(t, x)
 
-            gamma=pd.DataFrame(gamma.cpu().detach().numpy())
-            gamma["type"]="gamma"
-            delta=pd.DataFrame(delta.cpu().detach().numpy())
-            delta["type"]="delta"
-            psi=pd.DataFrame(psi.cpu().detach().numpy())
-            psi["type"]="psi"
-            embeddings_all=pd.concat([gamma,delta,psi],axis=0)
-            print(embeddings_all)
+            # gamma=pd.DataFrame(gamma.cpu().detach().numpy())
+            # gamma["type"]="gamma"
+            # gamma["X2"]=x[:,1].cpu().detach().numpy()
+            # gamma["X3"] = x[:, 2].cpu().detach().numpy()
+            # gamma["X6"] = x[:, 5].cpu().detach().numpy()
+            # gamma["X1"]=x[:,0].cpu().detach().numpy()
+            # gamma["X4"] = x[:, 3].cpu().detach().numpy()
+            # gamma["X5"] = x[:, 4].cpu().detach().numpy()
+            # gamma["instrumental_all"]=gamma["X2"]+gamma["X5"]
+            # gamma["confounder_all"]=gamma["X1"]+gamma["X3"]+gamma["X4"]
+            #
+            #
+            #
+            # delta=pd.DataFrame(delta.cpu().detach().numpy())
+            # delta["type"]="delta"
+            # delta["X2"]=x[:,1].cpu().detach().numpy()
+            # delta["X3"] = x[:, 2].cpu().detach().numpy()
+            # delta["X6"] = x[:, 5].cpu().detach().numpy()
+            # delta["X1"]=x[:,0].cpu().detach().numpy()
+            # delta["X4"] = x[:, 3].cpu().detach().numpy()
+            # delta["X5"] = x[:, 4].cpu().detach().numpy()
+            # delta["instrumental_all"]=delta["X2"]+delta["X5"]
+            # delta["confounder_all"]=delta["X1"]+delta["X3"]+delta["X4"]
+            #
+            #
+            # psi=pd.DataFrame(psi.cpu().detach().numpy())
+            # psi["type"]="upsilon"
+            # psi["X2"]=x[:,1].cpu().detach().numpy()
+            # psi["X3"] = x[:, 2].cpu().detach().numpy()
+            # psi["X6"] = x[:, 5].cpu().detach().numpy()
+            # psi["X1"]=x[:,0].cpu().detach().numpy()
+            # psi["X4"] = x[:, 3].cpu().detach().numpy()
+            # psi["X5"] = x[:, 4].cpu().detach().numpy()
+            # psi["instrumental_all"]=psi["X2"]+psi["X5"]
+            # psi["confounder_all"]=psi["X1"]+psi["X3"]+psi["X4"]
+            # embeddings_all=pd.concat([gamma,delta,psi],axis=0)
+            # print(embeddings_all)
 
 
             gamma_trained=pd.DataFrame(gamma_trained.cpu().detach().numpy())
             gamma_trained["type"]="gamma"
+            gamma_trained["X2"]=x[:,1].cpu().detach().numpy()
+            gamma_trained["X3"] = x[:, 2].cpu().detach().numpy()
+            gamma_trained["X6"] = x[:, 5].cpu().detach().numpy()
+            gamma_trained["X1"]=x[:,0].cpu().detach().numpy()
+            gamma_trained["X4"] = x[:, 3].cpu().detach().numpy()
+            gamma_trained["X5"] = x[:, 4].cpu().detach().numpy()
+            gamma_trained["instrumental_all"]=gamma_trained["X2"]+gamma_trained["X5"]
+            gamma_trained["confounder_all"]=gamma_trained["X1"]+gamma_trained["X3"]+gamma_trained["X4"]
+
             delta_trained=pd.DataFrame(delta_trained.cpu().detach().numpy())
             delta_trained["type"]="delta"
+            delta_trained["X2"]=x[:,1].cpu().detach().numpy()
+            delta_trained["X3"] = x[:, 2].cpu().detach().numpy()
+            delta_trained["X6"] = x[:, 5].cpu().detach().numpy()
+            delta_trained["X1"]=x[:,0].cpu().detach().numpy()
+            delta_trained["X4"] = x[:, 3].cpu().detach().numpy()
+            delta_trained["X5"] = x[:, 4].cpu().detach().numpy()
+            delta_trained["instrumental_all"] = delta_trained["X2"] + delta_trained["X5"]
+            delta_trained["confounder_all"] = delta_trained["X1"] + delta_trained["X3"] + delta_trained["X4"]
+
             psi_trained=pd.DataFrame(psi_trained.cpu().detach().numpy())
-            psi_trained["type"]="psi"
+            psi_trained["type"]="upsilon"
+            psi_trained["X2"]=x[:,1].cpu().detach().numpy()
+            psi_trained["X3"] = x[:, 2].cpu().detach().numpy()
+            psi_trained["X6"] = x[:, 5].cpu().detach().numpy()
+            psi_trained["X1"]=x[:,0].cpu().detach().numpy()
+            psi_trained["X4"] = x[:, 3].cpu().detach().numpy()
+            psi_trained["X5"] = x[:, 4].cpu().detach().numpy()
+            psi_trained["instrumental_all"] = psi_trained["X2"] + psi_trained["X5"]
+            psi_trained["confounder_all"] = psi_trained["X1"] + psi_trained["X3"] + psi_trained["X4"]
+
             embeddings_all_trained=pd.concat([gamma_trained,delta_trained,psi_trained],axis=0)
+
             print(embeddings_all_trained)
 
-            tsne = TSNE(n_components=2,n_iter=5000,perplexity=5, verbose=1, random_state=123)
-            z = tsne.fit_transform(embeddings_all.iloc[:,:50])
-            tsne_initial = pd.DataFrame()
-            tsne_initial["type"] = embeddings_all["type"]
-            tsne_initial["comp-1"] = z[:, 0]
-            tsne_initial["comp-2"] = z[:, 1]
+            # tsne = TSNE(n_components=2,n_iter=5000,perplexity=5, verbose=1, random_state=123)
+            # z = tsne.fit_transform(embeddings_all.iloc[:,:50])
+            # tsne_initial = pd.DataFrame()
+            # tsne_initial["type"] = embeddings_all["type"]
+            # tsne_initial["X6"]= embeddings_all["X6"]
+            # tsne_initial["X2"]= embeddings_all["X2"]
+            # tsne_initial["X3"]= embeddings_all["X3"]
+            #
+            # tsne_initial["X1"]= embeddings_all["X1"]
+            # tsne_initial["X4"]= embeddings_all["X4"]
+            # tsne_initial["X5"]= embeddings_all["X5"]
+            #
+            # tsne_initial["instrumental_all"]= embeddings_all["instrumental_all"]
+            # tsne_initial["confounder_all"]= embeddings_all["confounder_all"]
+            # tsne_initial["comp-1"] = z[:, 0]
+            # tsne_initial["comp-2"] = z[:, 1]
 
-            sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_initial.type.tolist(),
-                            palette=sns.color_palette("hls", 3),
-                            data=tsne_initial).set(title="Deep Representations of untrained model T-SNE projection")
-            plt.savefig("initial_disebtangled_fig.png")
+            # sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_initial.X6.tolist(),
+            #                 palette=sns.color_palette("hls", 3),
+            #                 data=tsne_initial).set(title="Deep Representations of untrained model T-SNE projection")
+            # plt.savefig("initial_disebtangled_fig.png")
 
-            fig, axs = plt.subplots( figsize=(6, 6))
+      #      fig, axs = plt.subplots( figsize=(6, 6))
 
             tsne = TSNE(n_components=2,n_iter=5000,perplexity=5, verbose=1, random_state=123)
             z_trained = tsne.fit_transform(embeddings_all_trained.iloc[:,:50])
             tsne_train = pd.DataFrame()
             tsne_train["type"] = embeddings_all_trained["type"]
+            tsne_train["X6"]= embeddings_all_trained["X6"]
+            tsne_train["X2"]= embeddings_all_trained["X2"]
+            tsne_train["X3"]= embeddings_all_trained["X3"]
+            tsne_train["X1"]= embeddings_all_trained["X1"]
+            tsne_train["X4"]= embeddings_all_trained["X4"]
+            tsne_train["X5"]= embeddings_all_trained["X5"]
+            tsne_train["instrumental_all"]= embeddings_all_trained["instrumental_all"]
+            tsne_train["confounder_all"]= embeddings_all_trained["confounder_all"]
             tsne_train["comp-1"] = z_trained[:, 0]
             tsne_train["comp-2"] = z_trained[:, 1]
-
-            sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_initial.type.tolist(),
-                            palette=sns.color_palette("hls", 3),
-                            data=tsne_initial).set(title="Deep Representations of model woth no beta T-SNE projection")
-            axs.set_ylim(-135, 135)
-            axs.set_xlim(-135, 135)
-
-            fig.savefig("initial_disebtangled_no_beta_fig.png")
+            #
+            # sns.scatterplot(x="comp-1", y="comp-2",
+            #                 hue=tsne_initial.type.tolist(),
+            #                 #hue=tsne_initial.X6.tolist(),
+            #                 #style=tsne_initial.type.tolist(),
+            #                 palette=sns.color_palette("hls", 3),
+            #                 #alpha=0.9,
+            #                 #palette="Spectral",
+            #                 data=tsne_initial).set(title="Deep Representations of model with no beta T-SNE projection")
+            # axs.set_ylim(-135, 135)
+            # axs.set_xlim(-135, 135)
+            #
+            # fig.savefig(cur_save_path +"initial_disentangled_no_beta_fig.png", dpi=300)
 
             fig_trained, axs_trained = plt.subplots( figsize=(6, 6))
 
-            sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_train.type.tolist(),
-                            palette=sns.color_palette("hls", 3),
+            sns.scatterplot(x="comp-1", y="comp-2",
+                            hue=tsne_train.X6.tolist(),
+                            #hue=tsne_train.type.tolist(),
+                           style=tsne_train.type.tolist(),alpha=1,
+                            #palette="Spectral",
+                            palette=sns.color_palette("Blues", as_cmap=True),
                             data=tsne_train).set(title="Deep Representations of trained model T-SNE projection")
             axs_trained.set_ylim(-135, 135)
             axs_trained.set_xlim(-135, 135)
 
 
-            fig_trained.savefig("trained_disebtangled_trained_fig.png")
-            # define optimizer
-           # optimizer = torch.optim.SGD(model.parameters(), lr=init_lr, momentum=momentum, weight_decay=wd, nesterov=True)
+            fig_trained.savefig(cur_save_path +"trained_disentangled_trained_fig_blue_X6.png", dpi=500)
 
+            #x2
+            fig_trained_x2, axs_trained_x2 = plt.subplots( figsize=(6, 6))
+
+            sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_train.X2.tolist(),style=tsne_train.type.tolist(),alpha=1,
+                            #palette="Spectral",
+                            palette=sns.color_palette("Blues", as_cmap=True),
+
+                            data=tsne_train).set(title="Deep Representations of trained model T-SNE projection")
+            axs_trained_x2.set_ylim(-135, 135)
+            axs_trained_x2.set_xlim(-135, 135)
+            fig_trained_x2.savefig(cur_save_path +"trained_disentangled_trained_fig_blue_X2.png", dpi=500)
+
+            #x3
+            fig_trained_x3, axs_trained_x3 = plt.subplots( figsize=(6, 6))
+
+            sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_train.X3.tolist(),style=tsne_train.type.tolist(),alpha=1,
+                            #palette="Spectral",
+                            palette=sns.color_palette("Blues", as_cmap=True),
+                            data=tsne_train).set(title="Deep Representations of trained model T-SNE projection")
+            axs_trained_x3.set_ylim(-135, 135)
+            axs_trained_x3.set_xlim(-135, 135)
+
+
+            fig_trained_x3.savefig(cur_save_path +"trained_disentangled_trained_fig_blue_X3.png", dpi=500)
+
+            #x1
+            fig_trained_x1, axs_trained_x1 = plt.subplots( figsize=(6, 6))
+
+            sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_train.X1.tolist(),style=tsne_train.type.tolist(),alpha=1,
+                            #palette="Spectral",
+                            palette=sns.color_palette("Blues", as_cmap=True),
+
+                            data=tsne_train).set(title="Deep Representations of trained model T-SNE projection")
+            axs_trained_x1.set_ylim(-135, 135)
+            axs_trained_x1.set_xlim(-135, 135)
+
+
+            fig_trained_x1.savefig(cur_save_path +"trained_disentangled_trained_fig_blue_X1.png", dpi=500)
+            #x4
+            fig_trained_x4, axs_trained_x4 = plt.subplots( figsize=(6, 6))
+
+            sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_train.X4.tolist(),style=tsne_train.type.tolist(),alpha=1,
+                            #palette="Spectral",
+                            palette=sns.color_palette("Blues", as_cmap=True),
+
+                            data=tsne_train).set(title="Deep Representations of trained model T-SNE projection")
+            axs_trained_x4.set_ylim(-135, 135)
+            axs_trained_x4.set_xlim(-135, 135)
+
+
+            fig_trained_x4.savefig(cur_save_path +"trained_disentangled_trained_fig_blue_X4.png", dpi=500)
+            #x5
+            fig_trained_x5, axs_trained_x5 = plt.subplots( figsize=(6, 6))
+
+            sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_train.X5.tolist(),style=tsne_train.type.tolist(),alpha=1,
+                            #palette="Spectral",
+                            palette=sns.color_palette("Blues", as_cmap=True),
+                            data=tsne_train).set(title="Deep Representations of trained model T-SNE projection")
+            axs_trained_x5.set_ylim(-135, 135)
+            axs_trained_x5.set_xlim(-135, 135)
+
+
+            fig_trained_x5.savefig(cur_save_path +"trained_disentangled_trained_fig_blue_X5.png", dpi=500)
+
+           #  #instrumental all
+           #  fig_trained_instrumental, axs_trained_instrumental = plt.subplots( figsize=(6, 6))
+           #
+           #  sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_train.instrumental_all.tolist(),style=tsne_train.type.tolist(),alpha=1,palette="Spectral",
+           #                  data=tsne_train).set(title="Deep Representations of trained model T-SNE projection")
+           #  axs_trained_instrumental.set_ylim(-135, 135)
+           #  axs_trained_instrumental.set_xlim(-135, 135)
+           #
+           #
+           #  fig_trained_instrumental.savefig("trained_disentangled_trained_fig_instrumental.png", dpi=500)
+           #
+           #  #confounder
+           #  fig_trained_confounder, axs_trained_confounder = plt.subplots( figsize=(6, 6))
+           #
+           #  sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_train.confounder_all.tolist(),style=tsne_train.type.tolist(),alpha=1,palette="Spectral",
+           #                  data=tsne_train).set(title="Deep Representations of trained model T-SNE projection")
+           #  axs_trained_confounder.set_ylim(-135, 135)
+           #  axs_trained_confounder.set_xlim(-135, 135)
+           #
+           #
+           #  fig_trained_confounder.savefig(cur_save_path +"trained_disentangled_trained_fig_confounder.png", dpi=500)
+           #  # define optimizer
+           # optimizer = torch.optim.SGD(model.parameters(), lr=init_lr, momentum=momentum, weight_decay=wd, nesterov=True)
+           #
 
             #
             # for epoch in range(num_epoch):

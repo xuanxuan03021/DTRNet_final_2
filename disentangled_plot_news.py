@@ -18,7 +18,7 @@ import argparse
 
 if __name__ == "__main__":
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = "6"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 
     use_cuda = torch.cuda.is_available()
     torch.manual_seed(1314)
@@ -123,11 +123,11 @@ if __name__ == "__main__":
             model_trained._initialize_weights()
 
             # to load
-            checkpoint = torch.load('logs/news/eval/0/Vcnet_disentangled_ckpt.pth.tar')
+            checkpoint = torch.load('logs/news/eval/' + str(_) + '/Vcnet_disentangled_ckpt.pth.tar')
             model_trained.load_state_dict(checkpoint['model_state_dict'])
 
 
-            checkpoint = torch.load('logs/news/eval/0/Vcnet_disentangledno_beta_ckpt.pth.tar')
+            checkpoint = torch.load('logs/news/eval/' + str(_) + '/Vcnet_disentangledno_beta_ckpt.pth.tar')
             model_initial.load_state_dict(checkpoint['model_state_dict'])
 
             for idx, (inputs, y) in enumerate(test_loader):
@@ -142,7 +142,7 @@ if __name__ == "__main__":
             delta = pd.DataFrame(delta.cpu().detach().numpy())
             delta["type"] = "delta"
             psi = pd.DataFrame(psi.cpu().detach().numpy())
-            psi["type"] = "psi"
+            psi["type"] = "upsilon"
             embeddings_all = pd.concat([gamma, delta, psi], axis=0)
             print(embeddings_all)
 
@@ -151,7 +151,7 @@ if __name__ == "__main__":
             delta_trained = pd.DataFrame(delta_trained.cpu().detach().numpy())
             delta_trained["type"] = "delta"
             psi_trained = pd.DataFrame(psi_trained.cpu().detach().numpy())
-            psi_trained["type"] = "psi"
+            psi_trained["type"] = "upsilon"
             embeddings_all_trained = pd.concat([gamma_trained, delta_trained, psi_trained], axis=0)
             print(embeddings_all_trained)
 
@@ -174,17 +174,17 @@ if __name__ == "__main__":
             sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_initial.type.tolist(),
                             palette=sns.color_palette("hls", 3),
                             data=tsne_initial).set(title="Deep Representations of model with no beta T-SNE projection")
-            axs.set_ylim(-150, 150)
-            axs.set_xlim(-150, 150)
+            axs.set_ylim(-200, 200)
+            axs.set_xlim(-200, 200)
 
-            fig.savefig("initial_disentangled_no_beta_fig_news_" + str(_) + ".png")
+            fig.savefig(cur_save_path +"initial_disentangled_no_beta_fig_news_" + str(_) + ".png")
 
             fig_trained, axs_trained = plt.subplots(figsize=(6, 6))
 
             sns.scatterplot(x="comp-1", y="comp-2", hue=tsne_train.type.tolist(),
                             palette=sns.color_palette("hls", 3),
                             data=tsne_train).set(title="Deep Representations of trained model T-SNE projection")
-            axs_trained.set_ylim(-150, 150)
-            axs_trained.set_xlim(-150, 150)
+            axs_trained.set_ylim(-200, 200)
+            axs_trained.set_xlim(-200, 200)
 
-            fig_trained.savefig("trained_disebtangled_trained_fig_news_" + str(_) + ".png")
+            fig_trained.savefig(cur_save_path +"trained_disebtangled_trained_fig_news_" + str(_) + ".png")

@@ -74,7 +74,7 @@ pd.set_option('display.max_columns', None)
 # with open("logs/ihdp/eval/result_ivc_50_no_beta.json", "r") as f:
 #     ihdp_nobeta = pd.DataFrame(json.load(f))
 # print(ihdp_nobeta.mean())
-#
+# #
 #
 # print("===============simu_ablation_gamma=============")
 # with open("logs/simu1/eval/result_ivc_50_no_gamma.json", "r") as f:
@@ -85,22 +85,48 @@ pd.set_option('display.max_columns', None)
 # with open("logs/news/eval/result_ivc_50_no_gamma.json", "r") as f:
 #     news_nogamma = pd.DataFrame(json.load(f))
 # print(news_nogamma.mean())
-# print("===============ihdp_ablation_gamma=============")
-# with open("logs/ihdp/eval/result_ivc_50_no_gamma.json", "r") as f:
-#     ihdp_nogamma = pd.DataFrame(json.load(f))
-# print(ihdp_nogamma)
-#
-# print(ihdp_nogamma.mean())
+print("===============ihdp_ablation_gamma=============")
+with open("logs/ihdp/eval/result_ivc_50_no_gamma.json", "r") as f:
+    ihdp_nogamma = pd.DataFrame(json.load(f))
+print(ihdp_nogamma)
+
+print(ihdp_nogamma.mean())
 
 # print("===============simu_ablation_reweight=============")
 # with open("logs/simu1/eval/result_ivc_50_no_reweight.json", "r") as f:
 #     simu_noreweight = pd.DataFrame(json.load(f))
 # print(simu_noreweight.mean())
-print("===============news_ablation_reweight=============")
-with open("logs/news/eval/result_ivc_50_no_reweight.json", "r") as f:
-    news_noreweight = pd.DataFrame(json.load(f))
-print(news_noreweight.mean())
-# print("===============ihdp_ablation_reweight=============")
-# with open("logs/ihdp/eval/result_ivc_50_no_reweight.json", "r") as f:
-#     ihdp_noreweight = pd.DataFrame(json.load(f))
-# print(ihdp_noreweight.mean())
+# print("===============news_ablation_reweight=============")
+# with open("logs/news/eval/result_ivc_50_no_reweight.json", "r") as f:
+#     news_noreweight = pd.DataFrame(json.load(f))
+# print(news_noreweight.mean())
+print("===============ihdp_ablation_reweight=============")
+with open("logs/ihdp/eval/result_ivc_50_no_reweight.json", "r") as f:
+    ihdp_noreweight = pd.DataFrame(json.load(f))
+print(ihdp_noreweight.mean())
+print(ihdp_noreweight.std())
+
+
+print("===============ihdp_0.3_reweight=============")
+with open("logs/ihdp/eval/result_ivc_50_03reweight.json", "r") as f:
+    ihdp_03reweight = pd.DataFrame(json.load(f))
+print(ihdp_03reweight.mean())
+print(ihdp_03reweight.std())
+
+print("===============ihdp_0.7_reweight=============")
+with open("logs/ihdp/eval/result_ivc_50_07_reweight.json", "r") as f:
+    ihdp_07reweight = pd.DataFrame(json.load(f))
+print(ihdp_07reweight.mean())
+print(ihdp_07reweight.std())
+
+print("===============ihdp_1.5reweight=============")
+with open("logs/ihdp/eval/result_ivc_50_15reweight.json", "r") as f:
+    ihdp_2noreweight = pd.DataFrame(json.load(f))
+print(ihdp_2noreweight.mean())
+print(ihdp_2noreweight.std())
+
+print("===============ihdp_2reweight=============")
+with open("logs/ihdp/eval/result_ivc_50_2reweight.json", "r") as f:
+    ihdp_2noreweight = pd.DataFrame(json.load(f))
+print(ihdp_2noreweight.mean())
+print(ihdp_2noreweight.std())

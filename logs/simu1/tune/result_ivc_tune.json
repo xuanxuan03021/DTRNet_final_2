@@ -1,0 +1,4033 @@
+[{
+  "Vcnet_disentangled": [
+    0.018899142742156982
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018899142742156982,
+    0.009018396958708763
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007978474721312523
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007978474721312523,
+    0.005371324252337217
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008365381509065628
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008365381509065628,
+    0.009957786649465561
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021963663399219513
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021963663399219513,
+    0.00861329585313797
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00811209436506033
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00811209436506033,
+    0.019372977316379547
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008437145501375198
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008437145501375198,
+    0.010019084438681602
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0179233830422163
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0179233830422163,
+    0.00855926238000393
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009524265304207802
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009524265304207802,
+    0.007333522662520409
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008461883291602135
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008461883291602135,
+    0.00996076874434948
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01845608651638031
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01845608651638031,
+    0.008561995811760426
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007788400165736675
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007788400165736675,
+    0.004811855964362621
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008375292643904686
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008375292643904686,
+    0.0098821260035038
+  ],
+  "hyperparameter": [
+    0.1,
+    0.1,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021500376984477043
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021500376984477043,
+    0.021042432636022568
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009741994552314281
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009741994552314281,
+    0.008092084899544716
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008636719547212124
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008636719547212124,
+    0.008797244168817997
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021432261914014816
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021432261914014816,
+    0.022761665284633636
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010809316299855709
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010809316299855709,
+    0.008208070881664753
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009113338775932789
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009113338775932789,
+    0.00957444403320551
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02147035114467144
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02147035114467144,
+    0.0062914346344769
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01050500851124525
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01050500851124525,
+    0.00809662789106369
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009103638119995594
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009103638119995594,
+    0.009258931502699852
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02153906412422657
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02153906412422657,
+    0.019564125686883926
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010252001695334911
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010252001695334911,
+    0.008161228150129318
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009134837426245213
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009134837426245213,
+    0.009619172662496567
+  ],
+  "hyperparameter": [
+    0.1,
+    0.2,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013113515451550484
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013113515451550484,
+    0.027821585536003113
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018903402611613274
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018903402611613274,
+    0.013930398970842361
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012935277074575424
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012935277074575424,
+    0.011821974068880081
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013111931271851063
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013111931271851063,
+    0.017063992097973824
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01881854236125946
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01881854236125946,
+    0.014231815002858639
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013085003942251205
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013085003942251205,
+    0.0117563521489501
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0131073622033
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0131073622033,
+    0.02024993672966957
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01884770393371582
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01884770393371582,
+    0.013378291390836239
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012953967787325382
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012953967787325382,
+    0.011796867474913597
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013136547058820724
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013136547058820724,
+    0.02154013328254223
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018811790272593498
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018811790272593498,
+    0.013453228399157524
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012511844746768475
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012511844746768475,
+    0.011707734316587448
+  ],
+  "hyperparameter": [
+    0.1,
+    0.4,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021833481267094612
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021833481267094612,
+    0.004235651809722185
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01375530008226633
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01375530008226633,
+    0.0207451730966568
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012629622593522072
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012629622593522072,
+    0.009727753698825836
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021848535165190697
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021848535165190697,
+    0.003320209449157119
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013718724250793457
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013718724250793457,
+    0.020277932286262512
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012643266469240189
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012643266469240189,
+    0.0097594503313303
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021822325885295868
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021822325885295868,
+    0.005232598632574081
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013839841820299625
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013839841820299625,
+    0.020808877423405647
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012664797715842724
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012664797715842724,
+    0.009813452139496803
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021851487457752228
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021851487457752228,
+    0.003226054832339287
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014190253801643848
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014190253801643848,
+    0.020250530913472176
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012653117999434471
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012653117999434471,
+    0.009820273146033287
+  ],
+  "hyperparameter": [
+    0.1,
+    0.6,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022447239607572556
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022447239607572556,
+    0.008677867241203785
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00837766658514738
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00837766658514738,
+    0.03624430671334267
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008447743952274323
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008447743952274323,
+    0.009937917813658714
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022543586790561676
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022543586790561676,
+    0.013205709867179394
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007964396849274635
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007964396849274635,
+    0.0250715184956789
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00848185271024704
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00848185271024704,
+    0.009981333278119564
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01792038232088089
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01792038232088089,
+    0.008954598568379879
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00958837941288948
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00958837941288948,
+    0.03561725839972496
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008418641984462738
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008418641984462738,
+    0.00993712991476059
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02247818000614643
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02247818000614643,
+    0.008994126692414284
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0098826102912426
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0098826102912426,
+    0.004645123612135649
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008495325222611427
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008495325222611427,
+    0.009925520978868008
+  ],
+  "hyperparameter": [
+    0.2,
+    0.1,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02103494107723236
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02103494107723236,
+    0.022299988195300102
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011056354269385338
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011056354269385338,
+    0.0081606674939394
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009118926711380482
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009118926711380482,
+    0.008688323199748993
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021067578345537186
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021067578345537186,
+    0.022296175360679626
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010821954347193241
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010821954347193241,
+    0.00843542255461216
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009102558717131615
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009102558717131615,
+    0.009242423810064793
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021508384495973587
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021508384495973587,
+    0.005486992187798023
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011649630032479763
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011649630032479763,
+    0.008396251127123833
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009117470122873783
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009117470122873783,
+    0.008773206733167171
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021083641797304153
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021083641797304153,
+    0.024735381826758385
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010385262779891491
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010385262779891491,
+    0.008086234331130981
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009096037596464157
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009096037596464157,
+    0.009222317487001419
+  ],
+  "hyperparameter": [
+    0.2,
+    0.2,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013103138655424118
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013103138655424118,
+    0.009232275187969208
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01881580427289009
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01881580427289009,
+    0.01436559483408928
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012977511622011662
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012977511622011662,
+    0.01030751783400774
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013127687387168407
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013127687387168407,
+    0.018714664503932
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018847888335585594
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018847888335585594,
+    0.014278614893555641
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012956179678440094
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012956179678440094,
+    0.011769366450607777
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013134955428540707
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013134955428540707,
+    0.04492678493261337
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018744302913546562
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018744302913546562,
+    0.013672755099833012
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013215861283242702
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013215861283242702,
+    0.011825310997664928
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013028154149651527
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013028154149651527,
+    0.026296786963939667
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018766846507787704
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018766846507787704,
+    0.013577929697930813
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013133036904036999
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013133036904036999,
+    0.01184860710054636
+  ],
+  "hyperparameter": [
+    0.2,
+    0.4,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013142612762749195
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013142612762749195,
+    0.004093979950994253
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01370143797248602
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01370143797248602,
+    0.0208201315253973
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012662600725889206
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012662600725889206,
+    0.009788394905626774
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01460809726268053
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01460809726268053,
+    0.005439609754830599
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013695177622139454
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013695177622139454,
+    0.02087850123643875
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012667158618569374
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012667158618569374,
+    0.009957910515367985
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014622814953327179
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014622814953327179,
+    0.00507287448272109
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013673732057213783
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013673732057213783,
+    0.0202958807349205
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012667982839047909
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012667982839047909,
+    0.009783696383237839
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01304194238036871
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01304194238036871,
+    0.0056559680961072445
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013981366530060768
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013981366530060768,
+    0.020811930298805237
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012657660990953445
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012657660990953445,
+    0.009823868051171303
+  ],
+  "hyperparameter": [
+    0.2,
+    0.6,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02221510000526905
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.02221510000526905,
+    0.013749975711107254
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008779388852417469
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008779388852417469,
+    0.04036295413970947
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008387785404920578
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008387785404920578,
+    0.00965205766260624
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022336509078741074
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022336509078741074,
+    0.013552356511354446
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009699889458715916
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009699889458715916,
+    0.004968202672898769
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007287135347723961
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007287135347723961,
+    0.00994825828820467
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.017058327794075012
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.017058327794075012,
+    0.01311003603041172
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009341893717646599
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009341893717646599,
+    0.04359858110547066
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008367850445210934
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008367850445210934,
+    0.009993991814553738
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022377463057637215
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022377463057637215,
+    0.008677113801240921
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008561085909605026
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008561085909605026,
+    0.03888627886772156
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007815447635948658
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.007815447635948658,
+    0.009697381407022476
+  ],
+  "hyperparameter": [
+    0.4,
+    0.1,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.020825715735554695
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.020825715735554695,
+    0.005629980470985174
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01103383582085371
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01103383582085371,
+    0.008119557052850723
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008585222065448761
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008585222065448761,
+    0.009604309685528278
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0207950621843338
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0207950621843338,
+    0.006755230017006397
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010691341944038868
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010691341944038868,
+    0.008140026591718197
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008646523579955101
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008646523579955101,
+    0.009602143429219723
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.020800579339265823
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.020800579339265823,
+    0.0059503656812012196
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011691981926560402
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011691981926560402,
+    0.007568723056465387
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008617391809821129
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008617391809821129,
+    0.009606143459677696
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021541781723499298
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021541781723499298,
+    0.0059403907507658005
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01067084539681673
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01067084539681673,
+    0.008009585551917553
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008621195331215858
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008621195331215858,
+    0.009212309494614601
+  ],
+  "hyperparameter": [
+    0.4,
+    0.2,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013065057806670666
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013065057806670666,
+    0.037153344601392746
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01880565844476223
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01880565844476223,
+    0.013265129178762436
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01261975895613432
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01261975895613432,
+    0.011934933252632618
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013057181611657143
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013057181611657143,
+    0.015589212998747826
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018942609429359436
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018942609429359436,
+    0.01338894758373499
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012939675711095333
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012939675711095333,
+    0.011870726011693478
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013063178397715092
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013063178397715092,
+    0.022252991795539856
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018930356949567795
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018930356949567795,
+    0.01338296290487051
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012894267216324806
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012894267216324806,
+    0.011839493177831173
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013048890046775341
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013048890046775341,
+    0.011305443942546844
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018652418628335
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018652418628335,
+    0.013532429933547974
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01310156099498272
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01310156099498272,
+    0.01172467228025198
+  ],
+  "hyperparameter": [
+    0.4,
+    0.4,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014454989694058895
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014454989694058895,
+    0.005149670410901308
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013908099383115768
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013908099383115768,
+    0.020309457555413246
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012677094899117947
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012677094899117947,
+    0.009785126894712448
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01446137297898531
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01446137297898531,
+    0.0049928766675293446
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013772989623248577
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013772989623248577,
+    0.02086862362921238
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012659285217523575
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012659285217523575,
+    0.009876004420220852
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01434855442494154
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01434855442494154,
+    0.005056074354797602
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014172417111694813
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014172417111694813,
+    0.020760657265782356
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012635606341063976
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012635606341063976,
+    0.009791464544832706
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01446632668375969
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01446632668375969,
+    0.0050376588478684425
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014183130115270615
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014183130115270615,
+    0.02033018320798874
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01267167180776596
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01267167180776596,
+    0.009759374894201756
+  ],
+  "hyperparameter": [
+    0.4,
+    0.6,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.017432816326618195
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.017432816326618195,
+    0.013588503934442997
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0078474972397089
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0078474972397089,
+    0.004086499568074942
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008442523889243603
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008442523889243603,
+    0.009884116239845753
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022288799285888672
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.022288799285888672,
+    0.009152187965810299
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009698973037302494
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009698973037302494,
+    0.029875826090574265
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00834010262042284
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00834010262042284,
+    0.009924612939357758
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018813863396644592
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018813863396644592,
+    0.013975689187645912
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008217413909733295
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008217413909733295,
+    0.027632668614387512
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008455982431769371
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008455982431769371,
+    0.009916158393025398
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01653401181101799
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01653401181101799,
+    0.008490637876093388
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009559017606079578
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.009559017606079578,
+    0.03464893251657486
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008529541082680225
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008529541082680225,
+    0.009763192385435104
+  ],
+  "hyperparameter": [
+    0.6,
+    0.1,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.020802346989512444
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.020802346989512444,
+    0.0058755455538630486
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011753404513001442
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011753404513001442,
+    0.008493148721754551
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00860406830906868
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.00860406830906868,
+    0.008886031806468964
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.020814767107367516
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.020814767107367516,
+    0.02463417686522007
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011683727614581585
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.011683727614581585,
+    0.008690710179507732
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0086286012083292
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0086286012083292,
+    0.00879702903330326
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021571723744273186
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.021571723744273186,
+    0.022393327206373215
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010809364728629589
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010809364728629589,
+    0.008440094999969006
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008630353957414627
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008630353957414627,
+    0.009625825099647045
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0208506491035223
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0208506491035223,
+    0.023999113589525223
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010723795741796494
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.010723795741796494,
+    0.007989222183823586
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008599680848419666
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.008599680848419666,
+    0.00941277015954256
+  ],
+  "hyperparameter": [
+    0.6,
+    0.2,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013102336786687374
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013102336786687374,
+    0.012688794173300266
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018894515931606293
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018894515931606293,
+    0.013239470310509205
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013155280612409115
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013155280612409115,
+    0.011832228861749172
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013095148839056492
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013095148839056492,
+    0.023028485476970673
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018689921125769615
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018689921125769615,
+    0.013643528334796429
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012964385561645031
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012964385561645031,
+    0.011798863299190998
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013106565922498703
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013106565922498703,
+    0.016857320442795753
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018678070977330208
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.018678070977330208,
+    0.013414564542472363
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012947304174304008
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012947304174304008,
+    0.011865601874887943
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013109312392771244
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013109312392771244,
+    0.028803391382098198
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01864665560424328
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01864665560424328,
+    0.013434503227472305
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013023675419390202
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013023675419390202,
+    0.011830759234726429
+  ],
+  "hyperparameter": [
+    0.6,
+    0.4,
+    0.6,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013224352151155472
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013224352151155472,
+    0.004510477650910616
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.1,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01394031010568142
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01394031010568142,
+    0.020489659160375595
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.1,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012661196291446686
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012661196291446686,
+    0.009789727628231049
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.1,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0132601885125041
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.0132601885125041,
+    0.004337086342275143
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.2,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01385746244341135
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01385746244341135,
+    0.020430801436305046
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.2,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012659481726586819
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012659481726586819,
+    0.009802302345633507
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.2,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014671669341623783
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014671669341623783,
+    0.005364011973142624
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.4,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014115899801254272
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.014115899801254272,
+    0.020675763487815857
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.4,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01267286017537117
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.01267286017537117,
+    0.009753325022757053
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.4,
+    1e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013248860836029053
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013248860836029053,
+    0.0051109082996845245
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.6,
+    0.0001
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013888554647564888
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.013888554647564888,
+    0.020678455010056496
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.6,
+    5e-05
+  ]
+},{
+  "Vcnet_disentangled": [
+    0.012691345065832138
+  ],
+  "hyperparameter": [
+    0.6,
+    0.6,
+    0.6,
+    1e-05
+  ]
+},{
+"Vcnet_disentangled": [
+0.012691345065832138,
+0.009851050563156605
+],
+"hyperparameter": [
+0.6,
+0.6,
+0.6,
+1e-05
+]
+},]

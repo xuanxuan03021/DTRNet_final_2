@@ -112,16 +112,16 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='train with simulate data')
 
     # i/o
-    parser.add_argument('--data_dir', type=str, default='dataset/simu1/eval', help='dir of eval dataset')
-    parser.add_argument('--save_dir', type=str, default='logs/simu1/eval', help='dir to save result')
+    parser.add_argument('--data_dir', type=str, default='dataset/simu2/eval', help='dir of eval dataset')
+    parser.add_argument('--save_dir', type=str, default='logs/simu2/eval', help='dir to save result')
     # parser.add_argument('--data_dir', type=str, default='dataset/simu1/tune', help='dir of eval dataset')
     # parser.add_argument('--save_dir', type=str, default='logs/simu1/tune', help='dir to save result')
 
     # common
-    parser.add_argument('--num_dataset', type=int, default=1, help='num of datasets to train')
+    parser.add_argument('--num_dataset', type=int, default=5, help='num of datasets to train')
 
     # training
-    parser.add_argument('--n_epochs', type=int, default=800, help='num of epochs to train')
+    parser.add_argument('--n_epochs', type=int, default=500, help='num of epochs to train')
 
     # print train info
     parser.add_argument('--verbose', type=int, default=10, help='print train info freq')
@@ -203,7 +203,7 @@ if __name__ == "__main__":
 
 
 
-                for idx, (inputs, y) in enumerate(train_loader ):
+                for idx, (inputs, y) in enumerate( train_loader):
                     start = time.time()
                     t = inputs[:, 0].cuda()
                     x = inputs[:, 1:].cuda()
@@ -238,10 +238,10 @@ if __name__ == "__main__":
                 'model': model_name,
                 'best_test_loss': mse,
                 'model_state_dict': model.state_dict(),
-            }, model_name=model_name+"no_beta", checkpoint_dir=cur_save_path)
+            }, model_name=model_name, checkpoint_dir=cur_save_path)
             print('-----------------------------------------------------------------')
 
             Result[model_name].append(mse)
             # #
-            # with open(save_path + '/result_ivc_50_no_gamma.json', 'w') as fp:
-            #     json.dump(Result, fp)
+            with open(save_path + '/result_ivc_50.json', 'w') as fp:
+                json.dump(Result, fp)
