@@ -106,7 +106,7 @@ if __name__ == "__main__":
     parser.add_argument('--data_split_dir', type=str, default='dataset/news/eval', help='dir of data split')
     parser.add_argument('--save_dir', type=str, default='logs/news/eval', help='dir to save result')
     # common
-    parser.add_argument('--num_dataset', type=int, default=100, help='num of datasets to train')
+    parser.add_argument('--num_dataset', type=int, default=50, help='num of datasets to train')
 
     # training
     parser.add_argument('--n_epochs', type=int, default=800, help='num of epochs to train')
@@ -147,7 +147,6 @@ if __name__ == "__main__":
     Result = {}
     for model_name in [ 'Vcnet_disentangled']:
 
-    #for model_name in ['Tarnet', 'Tarnet_tr', 'Drnet', 'Drnet_tr', 'Vcnet', 'Vcnet_tr']:
         Result[model_name]=[]
         if model_name == 'Vcnet_disentangled':
             cfg_density = [(498, 50, 1, 'relu'), (50, 50, 1, 'relu')]
@@ -220,10 +219,10 @@ if __name__ == "__main__":
                 'model': model_name,
                 'best_test_loss': mse,
                 'model_state_dict': model.state_dict(),
-            }, model_name=model_name+"no_beta", checkpoint_dir=cur_save_path)
+            }, model_name=model_name, checkpoint_dir=cur_save_path)
             print('-----------------------------------------------------------------')
 
             Result[model_name].append(mse)
             # #
-            with open(save_path + '/result_ivc_100.json', 'w') as fp:
+            with open(save_path + '/result_ivc_50.json', 'w') as fp:
                 json.dump(Result, fp)

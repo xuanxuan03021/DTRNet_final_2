@@ -219,10 +219,10 @@ if __name__ == "__main__":
                 'model': model_name,
                 'best_test_loss': mse,
                 'model_state_dict': model.state_dict(),
-            }, model_name=model_name+"no_beta", checkpoint_dir=cur_save_path)
+            }, model_name=model_name, checkpoint_dir=cur_save_path)
             print('-----------------------------------------------------------------')
 
             Result[model_name].append(mse)
             # #
-            with open(save_path + '/result_ivc_100.json', 'w') as fp:
+            with open(save_path + '/result_ivc_50.json', 'w') as fp:
                 json.dump(Result, fp)
