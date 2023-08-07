@@ -8,9 +8,9 @@ import json
 import time
 import matplotlib.pyplot as plt
 
-from based_on_vcnet import Vcnet
+from model import Vcnet
 from data import get_iter
-from based_on_vcnet_evaluation import curve
+from eval import curve
 from sklearn.manifold import TSNE
 import seaborn as sns
 import argparse

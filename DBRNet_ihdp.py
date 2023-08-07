@@ -7,9 +7,9 @@ import os
 import json
 import time
 
-from based_on_vcnet import Vcnet
+from model import DBRNet
 from data import get_iter
-from based_on_vcnet_evaluation import curve
+from eval import curve
 
 import argparse
 
@@ -37,7 +37,6 @@ def save_checkpoint(state, model_name='', checkpoint_dir='.'):
 def log(input,epsilon=1e-6,):
 
     log_n=torch.log(input+epsilon)
-  #  print(log_n)
     return log_n
 
 def normalize(input,epsilon=1e-6,):
@@ -46,12 +45,10 @@ def normalize(input,epsilon=1e-6,):
     normalized_input=input_temp/torch.max(input_temp)
     return normalized_input+epsilon
 
-#g, Q,gamma,delta,psi
 def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
 
     '''reweight'''
     reweight=1/(out[0]+ epsilon)
-    reweight=1.5*reweight
 
     '''factual loss'''
     factual_loss=(reweight*((out[1].squeeze() - y.cuda().squeeze())**2)).mean()
@@ -66,14 +63,7 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
 
     criterion = torch.nn.KLDivLoss(reduction="batchmean", log_target=True).cuda()
     discrepancy_loss_temp = criterion(gamma_p, delta_p)
-    #print(gamma_p)
-    #print(delta_p)
-   # print("here",discrepancy_loss_temp)
-    # print("here",discrepancy_loss_temp)
     discrepancy_loss_temp += criterion(delta_p, psi_p)
-    #print("there",discrepancy_loss_temp)
-
-    #  print("there",discrepancy_loss_temp)
     discrepancy_loss= beta* (1/(discrepancy_loss_temp+epsilon))
 
     '''imbalance loss'''
@@ -81,9 +71,6 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
 
     '''total loss'''
     total_loss=factual_loss+treatment_loss+discrepancy_loss+imbalance_loss
-    # print("factual_loss",factual_loss)
-    # print("treatment_loss",treatment_loss)
-    # print("discrepancy_loss",discrepancy_loss)
 
     return total_loss,((out[1].squeeze() - y.cuda().squeeze())**2).mean(),treatment_loss,discrepancy_loss,imbalance_loss
 
@@ -158,8 +145,6 @@ if __name__ == "__main__":
 
     Result = {}
     for model_name in [ 'Vcnet_disentangled']:
-
-    #for model_name in ['Tarnet', 'Tarnet_tr', 'Drnet', 'Drnet_tr', 'Vcnet', 'Vcnet_tr']:
         Result[model_name]=[]
         if model_name == 'Vcnet_disentangled':
             cfg_density = [(25, 50, 1, 'relu'), (50, 50, 1, 'relu')]
@@ -167,7 +152,7 @@ if __name__ == "__main__":
             cfg = [(100, 50, 1, 'relu'), (50, 1, 1, 'id')]
             degree = 2
             knots = [0.33, 0.66]
-            model = Vcnet(cfg_density, num_grid, cfg, degree, knots).cuda()
+            model = DBRNet(cfg_density, num_grid, cfg, degree, knots).cuda()
             print(model)
             model._initialize_weights()
 
@@ -211,13 +196,10 @@ if __name__ == "__main__":
 
                     optimizer.zero_grad()
                     out = model.forward(t, x)
-                    #print("forward ", after_forward - start)
                     loss,factual_loss,treatment_loss,discrepancy_loss,imbalance_loss = criterion(out, y, alpha=alpha, beta=beta,gamma=gamma)
                     loss.backward()
                     optimizer.step()
-                    #print("after backward ", after_backward - after_forward)
-                    # if epoch == 1:
-                    #     input()
+
 
                 if epoch % verbose == 0:
                     print('current epoch: ', epoch)
@@ -242,5 +224,5 @@ if __name__ == "__main__":
 
             Result[model_name].append(mse)
             # #
-            with open(save_path + '/result_ivc_50_15reweight.json', 'w') as fp:
+            with open(save_path + '/result_ivc_100.json', 'w') as fp:
                 json.dump(Result, fp)
