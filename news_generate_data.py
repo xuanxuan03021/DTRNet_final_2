@@ -10,7 +10,7 @@ import argparse
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='generate news data')
     parser.add_argument('--data_path', type=str, default='dataset/news/news_pp.npy', help='data path')
-    parser.add_argument('--save_dir', type=str, default='dataset/news', help='dir to save generated data')
+    parser.add_argument('--save_dir', type=str, default='dataset/news_new', help='dir to save generated data')
     parser.add_argument('--num_eval', type=int, default=100, help='num of dataset for evaluating the methods')
     parser.add_argument('--num_tune', type=int, default=20, help='num of dataset for tuning the parameters')
 
@@ -70,21 +70,28 @@ if __name__ == "__main__":
         t_grid = torch.zeros(2, num_data)
         t_grid[0, :] = data_matrix[:, 0].squeeze()
 
+        t_grid_mise = torch.zeros(num_data, num_data)
+        t_grid_mise[0, :] = data_matrix[:, 0].squeeze()
+
         for i in tqdm(range(num_data)):
             psi = 0
             t = t_grid[0, i].numpy()
             for j in range(num_data):
                 x = data_matrix[j, 1: num_feature+1].numpy()
                 psi += t_x_y(t, x)
+                t_grid_mise[j, i] = t_x_y(t, x)
+
             psi /= num_data
             t_grid[1, i] = psi
 
-        return data_matrix, t_grid
+        return data_matrix, t_grid,t_grid_mise
 
-    dm, tg = news_matrix()
+    dm, tg,t_grid_mise = news_matrix()
 
     torch.save(dm, save_path + '/data_matrix.pt')
     torch.save(tg, save_path + '/t_grid.pt')
+    torch.save(tg, save_path + '/t_grid.pt')
+    torch.save(t_grid_mise, save_path + '/t_grid_mise.pt')
 
     # generate eval splitting
     for _ in range(args.num_eval):

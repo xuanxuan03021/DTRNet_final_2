@@ -6,6 +6,7 @@ import pandas as pd
 import os
 import json
 import time
+from pytorchtools import EarlyStopping
 
 from model import DBRNet
 from data import get_iter
@@ -37,6 +38,7 @@ def save_checkpoint(state, model_name='', checkpoint_dir='.'):
 def log(input,epsilon=1e-6,):
 
     log_n=torch.log(input+epsilon)
+  #  print(log_n)
     return log_n
 
 def normalize(input,epsilon=1e-6,):
@@ -45,6 +47,7 @@ def normalize(input,epsilon=1e-6,):
     normalized_input=input_temp/torch.max(input_temp)
     return normalized_input+epsilon
 
+#g, Q,gamma,delta,psi
 def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
 
     '''reweight'''
@@ -82,7 +85,7 @@ def criterion_TR(out, trg, y, beta=1., epsilon=1e-6):
 
 if __name__ == "__main__":
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = "1,2,7"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "7"
 
     use_cuda = torch.cuda.is_available()
     torch.manual_seed(1314)
@@ -105,6 +108,8 @@ if __name__ == "__main__":
     parser.add_argument('--data_dir', type=str, default='dataset/news', help='dir of data matrix')
     parser.add_argument('--data_split_dir', type=str, default='dataset/news/eval', help='dir of data split')
     parser.add_argument('--save_dir', type=str, default='logs/news/eval', help='dir to save result')
+    parser.add_argument('--val_dir', type=str, default='dataset/news/tune', help='dir of eval dataset')
+
     # common
     parser.add_argument('--num_dataset', type=int, default=50, help='num of datasets to train')
 
@@ -135,6 +140,7 @@ if __name__ == "__main__":
 
     # data
     num_dataset = args.num_dataset
+    val_path = args.val_dir
 
     # save
     save_path = args.save_dir
@@ -143,20 +149,22 @@ if __name__ == "__main__":
 
     data_matrix = torch.load(args.data_dir + '/data_matrix.pt')
     t_grid_all = torch.load(args.data_dir + '/t_grid.pt')
+    t_grid_mise_all = torch.load(args.data_dir + '/t_grid_mise.pt')
 
     Result = {}
     for model_name in [ 'Vcnet_disentangled']:
 
         Result[model_name]=[]
+        Result[model_name + "mise"] = []
         if model_name == 'Vcnet_disentangled':
-            cfg_density = [(498, 50, 1, 'relu'), (50, 50, 1, 'relu')]
-            num_grid = 10
-            cfg = [(100, 50, 1, 'relu'), (50, 1, 1, 'id')]
-            degree = 2
-            knots = [0.33, 0.66]
-            model = DBRNet(cfg_density, num_grid, cfg, degree, knots).cuda()
-            print(model)
-            model._initialize_weights()
+                cfg_density = [(498, 50, 1, 'relu'), (50, 50, 1, 'relu')]
+                num_grid = 10
+                cfg = [(100, 50, 1, 'relu'), (50, 1, 1, 'id')]
+                degree = 2
+                knots = [0.33, 0.66]
+                model = DBRNet(cfg_density, num_grid, cfg, degree, knots).cuda()
+                print(model)
+                model._initialize_weights()
 
         if model_name == 'Vcnet_disentangled':
             init_lr = 0.0001
@@ -173,14 +181,21 @@ if __name__ == "__main__":
 
             idx_train = torch.load(args.data_split_dir + '/' + str(_) + '/idx_train.pt')
             idx_test = torch.load(args.data_split_dir + '/' + str(_) + '/idx_test.pt')
+            idx_val = torch.load(args.val_dir + '/' + str(0) + '/idx_train.pt')
 
             train_matrix = data_matrix[idx_train, :]
             test_matrix = data_matrix[idx_test, :]
+            train_matrix_val = data_matrix[idx_val, :]
+
             t_grid = t_grid_all[:, idx_test]
+            t_grid_mise=t_grid_mise_all[idx_test, idx_test]
 
             train_loader = get_iter(data_matrix[idx_train, :], batch_size=500, shuffle=True)
             test_loader = get_iter(data_matrix[idx_test, :], batch_size=data_matrix[idx_test, :].shape[0],
                                    shuffle=False)
+
+            val_loader = get_iter(data_matrix[idx_val, :], batch_size=500, shuffle=False)
+
             # reinitialize model
             model._initialize_weights()
 
@@ -188,8 +203,20 @@ if __name__ == "__main__":
             optimizer = torch.optim.SGD(model.parameters(), lr=init_lr, momentum=momentum, weight_decay=wd, nesterov=True)
 
             print('model : ', model_name)
+            # # to track the training loss as the model trains
+            train_losses = []
+            # to track the validation loss as the model trains
+            valid_losses = []
+            # to track the average training loss per epoch as the model trains
+            avg_train_losses = []
+            # to track the average validation loss per epoch as the model trains
+            avg_valid_losses = []
+
+            early_stopping = EarlyStopping(patience=10, verbose=True)
 
             for epoch in range(num_epoch):
+                model.train()
+
                 for idx, (inputs, y) in enumerate(train_loader):
                     t = inputs[:, 0].cuda()
                     x = inputs[:, 1:].cuda()
@@ -200,6 +227,46 @@ if __name__ == "__main__":
                     loss.backward()
                     optimizer.step()
 
+                    train_losses.append(loss.item())
+                model.eval()  # prep model for evaluation
+                for idx, (inputs, y) in enumerate(val_loader):
+                    # forward pass: compute predicted outputs by passing inputs to the model
+
+                    t = inputs[:, 0].cuda()
+                    x = inputs[:, 1:].cuda()
+                    y = y.cuda()
+                    out = model.forward(t, x)
+                    loss,factual_loss,treatment_loss,discrepancy_loss,imbalance_loss = criterion(out, y, alpha=alpha, beta=beta,gamma=gamma)
+
+                    # record validation loss
+                    valid_losses.append(loss.item())
+
+                # print training/validation statistics
+                # calculate average loss over an epoch
+                train_loss = np.average(train_losses)
+                valid_loss = np.average(valid_losses)
+                avg_train_losses.append(train_loss)
+                avg_valid_losses.append(valid_loss)
+
+                epoch_len = len(str(num_epoch))
+
+                print_msg = (f'[{epoch:>{epoch_len}}/{num_epoch:>{epoch_len}}] ' +
+                             f'train_loss: {train_loss:.5f} ' +
+                             f'valid_loss: {valid_loss:.5f}')
+
+                print(print_msg)
+
+                # clear lists to track next epoch
+                train_losses = []
+                valid_losses = []
+
+                # early_stopping needs the validation loss to check if it has decresed,
+                # and if it has, it will make a checkpoint of the current model
+                early_stopping(valid_loss, model)
+
+                if early_stopping.early_stop:
+                    print("Early stopping")
+                    break
 
                 if epoch % verbose == 0:
                     print('current epoch: ', epoch)
@@ -209,20 +276,26 @@ if __name__ == "__main__":
                     print('discrepancy_loss: ', discrepancy_loss.data)
                     print("imbalance_loss",imbalance_loss.data)
 
-            t_grid_hat, mse = curve(model, test_matrix, t_grid)
+            t_grid_hat, mse,mise = curve(model, test_matrix, t_grid,t_grid_mise)
 
             mse = float(mse)
+            mise = float(mise)
+
             print('current loss: ', float(loss.data))
             print('current test loss: ', mse)
+            print('current test mise loss: ', mise)
+
             print('-----------------------------------------------------------------')
             save_checkpoint({
                 'model': model_name,
                 'best_test_loss': mse,
+                'best_test_mise_loss': mise,
                 'model_state_dict': model.state_dict(),
-            }, model_name=model_name, checkpoint_dir=cur_save_path)
+            }, model_name=model_name+"AMSE_MISE", checkpoint_dir=cur_save_path)
             print('-----------------------------------------------------------------')
 
             Result[model_name].append(mse)
-            # #
-            with open(save_path + '/result_ivc_50.json', 'w') as fp:
-                json.dump(Result, fp)
+            Result[model_name + "mise"].append(mise)
+
+    with open(save_path + '/result_ivc_50_AMSE_MISE.json', 'w') as fp:
+        json.dump(Result, fp)

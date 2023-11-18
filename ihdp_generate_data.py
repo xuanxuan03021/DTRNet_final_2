@@ -10,7 +10,7 @@ import argparse
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='generate ihdp data')
     parser.add_argument('--data_path', type=str, default='dataset/ihdp/ihdp.csv', help='data path')
-    parser.add_argument('--save_dir', type=str, default='dataset/ihdp', help='dir to save generated data')
+    parser.add_argument('--save_dir', type=str, default='dataset/ihdp_new', help='dir to save generated data')
     parser.add_argument('--num_eval', type=int, default=100, help='num of dataset for evaluating the methods')
     parser.add_argument('--num_tune', type=int, default=20, help='num of dataset for tuning the parameters')
 
@@ -101,21 +101,27 @@ if __name__ == "__main__":
         t_grid = torch.zeros(2, n_data)
         t_grid[0, :] = data_matrix[:, 0].squeeze()
 
+        t_grid_mise = torch.zeros(n_data, n_data)
+        t_grid_mise[0, :] = data_matrix[:, 0].squeeze()
+
         for i in tqdm(range(n_data)):
             psi = 0
             t = t_grid[0, i]
             for j in range(n_data):
                 x = data_matrix[j, 1: n_feature+1]
                 psi += t_x_y(t, x)
+                t_grid_mise[j, i] = t_x_y(t, x)
+
             psi /= n_data
             t_grid[1, i] = psi
 
-        return data_matrix, t_grid
+        return data_matrix, t_grid,t_grid_mise
 
 
-    dm, tg = ihdp_matrix()
+    dm, tg,t_grid_mise = ihdp_matrix()
     torch.save(dm, args.save_dir + '/data_matrix.pt')
     torch.save(tg, args.save_dir + '/t_grid.pt')
+    torch.save(t_grid_mise, args.save_dir + '/t_grid_mise.pt')
 
     # generate splitting
     save_path = args.save_dir

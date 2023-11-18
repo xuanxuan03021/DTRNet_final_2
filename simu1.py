@@ -54,13 +54,20 @@ def simu_data1(n_train, n_test):
     t_grid = torch.zeros(2, n_test)
     t_grid[0, :] = test_matrix[:, 0].squeeze()
 
+    t_grid_mise=torch.zeros(1+n_test, n_test)
+    t_grid_mise[0, :] = test_matrix[:, 0].squeeze()
+
+
+
     for i in range(n_test):
         psi = 0
         t = t_grid[0, i]
         for j in range(n_test):
             x = test_matrix[j, 1:7]
             psi += t_x_y(t, x)
+            t_grid_mise[j,i]=t_x_y(t, x)
+
         psi /= n_test
         t_grid[1, i] = psi
 
-    return train_matrix, test_matrix, t_grid
+    return train_matrix, test_matrix, t_grid, t_grid_mise

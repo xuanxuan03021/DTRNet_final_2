@@ -12,6 +12,7 @@ from data import get_iter
 from eval import curve
 
 import argparse
+from pytorchtools import EarlyStopping
 
 def adjust_learning_rate(optimizer, init_lr, epoch):
     if lr_type == 'cos':  # cos without warm-up
@@ -102,6 +103,7 @@ if __name__ == "__main__":
     # i/o
     parser.add_argument('--data_dir', type=str, default='dataset/simu1/eval', help='dir of eval dataset')
     parser.add_argument('--save_dir', type=str, default='logs/simu1/eval', help='dir to save result')
+    parser.add_argument('--val_dir', type=str, default='dataset/simu1/tune', help='dir of eval dataset')
 
     # common
     parser.add_argument('--num_dataset', type=int, default=50, help='num of datasets to train')
@@ -130,6 +132,7 @@ if __name__ == "__main__":
     # data
     load_path = args.data_dir
     num_dataset = args.num_dataset
+    val_path = args.val_dir
 
     # save
     save_path = args.save_dir
@@ -158,71 +161,143 @@ if __name__ == "__main__":
 
             Result['Vcnet_disentangled'] = []
 
-        for _ in range(num_dataset):
+            for _ in range(num_dataset):
 
-            cur_save_path = save_path + '/' + str(_)
-            if not os.path.exists(cur_save_path):
-                os.makedirs(cur_save_path)
+                cur_save_path = save_path + '/' + str(_)
+                if not os.path.exists(cur_save_path):
+                    os.makedirs(cur_save_path)
 
-            data = pd.read_csv(load_path + '/' + str(_) + '/train.txt', header=None, sep=' ')
-            train_matrix = torch.from_numpy(data.to_numpy()).float()
-            data = pd.read_csv(load_path + '/' + str(_) + '/test.txt', header=None, sep=' ')
-            test_matrix = torch.from_numpy(data.to_numpy()).float()
-            data = pd.read_csv(load_path + '/' + str(_) + '/t_grid.txt', header=None, sep=' ')
-            t_grid = torch.from_numpy(data.to_numpy()).float()
+                data = pd.read_csv(load_path + '/' + str(_) + '/train.txt', header=None, sep=' ')
+                train_matrix = torch.from_numpy(data.to_numpy()).float()
+                data = pd.read_csv(load_path + '/' + str(_) + '/test.txt', header=None, sep=' ')
+                test_matrix = torch.from_numpy(data.to_numpy()).float()
+                data = pd.read_csv(load_path + '/' + str(_) + '/t_grid.txt', header=None, sep=' ')
+                t_grid = torch.from_numpy(data.to_numpy()).float()
+                data = pd.read_csv(load_path + '/' + str(_) + '/t_grid_mise.txt', header=None, sep=' ')
+                t_grid_mise = torch.from_numpy(data.to_numpy()).float()
+                data = pd.read_csv(val_path + '/' + str(0) + '/train.txt', header=None, sep=' ')
+                train_matrix_val = torch.from_numpy(data.to_numpy()).float()
 
-            # train_matrix, test_matrix, t_grid = simu_data1(500, 200)
-            train_loader = get_iter(train_matrix, batch_size=500, shuffle=True)
-            test_loader = get_iter(test_matrix, batch_size=test_matrix.shape[0], shuffle=False)
+                # train_matrix, test_matrix, t_grid = simu_data1(500, 200)
+                train_loader = get_iter(train_matrix, batch_size=500, shuffle=True)
+                test_loader = get_iter(test_matrix, batch_size=test_matrix.shape[0], shuffle=False)
+                val_loader = get_iter(train_matrix_val, batch_size=500, shuffle=False)
 
-            # reinitialize model
-            model._initialize_weights()
+                # reinitialize model
+                model._initialize_weights()
 
-            # define optimizer
-            optimizer = torch.optim.SGD(model.parameters(), lr=init_lr, momentum=momentum, weight_decay=wd, nesterov=True)
+                # define optimizer
+                optimizer = torch.optim.SGD(model.parameters(), lr=init_lr, momentum=momentum, weight_decay=wd,
+                                            nesterov=True)
 
-            print('model : ', model_name)
+                print('model : ', model_name)
 
-            for epoch in range(num_epoch):
+                # to track the training loss as the model trains
+                train_losses = []
+                # to track the validation loss as the model trains
+                valid_losses = []
+                # to track the average training loss per epoch as the model trains
+                avg_train_losses = []
+                # to track the average validation loss per epoch as the model trains
+                avg_valid_losses = []
 
+                early_stopping = EarlyStopping(patience=10, verbose=True)
 
+                for epoch in range(num_epoch):
+                    model.train()
 
-                for idx, (inputs, y) in enumerate(train_loader ):
-                    start = time.time()
-                    t = inputs[:, 0].cuda()
-                    x = inputs[:, 1:].cuda()
+                    for idx, (inputs, y) in enumerate(train_loader):
+                        start = time.time()
+                        t = inputs[:, 0].cuda()
+                        x = inputs[:, 1:].cuda()
 
-                    optimizer.zero_grad()
-                    out = model.forward(t, x)
-                    after_forward = time.time()
-                    loss,factual_loss,treatment_loss,discrepancy_loss,imbalance_loss = criterion(out, y, alpha=alpha, beta=beta,gamma=gamma)
-                    loss.backward()
-                    optimizer.step()
-                    after_backward = time.time()
+                        optimizer.zero_grad()
+                        out = model.forward(t, x)
+                        after_forward = time.time()
+                        # print("forward ", after_forward - start)
+                        loss, factual_loss, treatment_loss, discrepancy_loss, imbalance_loss = criterion(out, y,
+                                                                                                         alpha=alpha,
+                                                                                                         beta=beta,
+                                                                                                         gamma=gamma)
+                        loss.backward()
+                        optimizer.step()
+                        after_backward = time.time()
+                        # print("after backward ", after_backward - after_forward)
+                        # if epoch == 1:
+                        #     input()
+                        train_losses.append(loss.item())
 
+                    model.eval()  # prep model for evaluation
+                    for idx, (inputs, y) in enumerate(val_loader):
+                        # forward pass: compute predicted outputs by passing inputs to the model
 
-                if epoch % verbose == 0:
-                    print('current epoch: ', epoch)
-                    print('loss: ', loss.data)
-                    print('factual_loss: ', factual_loss.data)
-                    print('treatment_loss: ', treatment_loss.data)
-                    print('discrepancy_loss: ', discrepancy_loss.data)
-                    print("imbalance_loss",imbalance_loss.data)
+                        t = inputs[:, 0].cuda()
+                        x = inputs[:, 1:].cuda()
+                        y = y.cuda()
+                        out = model.forward(t, x)
+                        loss, factual_loss, treatment_loss, discrepancy_loss, imbalance_loss = criterion(out, y,
+                                                                                                         alpha=alpha,
+                                                                                                         beta=beta,
+                                                                                                         gamma=gamma)
 
-            t_grid_hat, mse = curve(model, test_matrix, t_grid)
+                        # record validation loss
+                        valid_losses.append(loss.item())
+                    # print training/validation statistics
+                    # calculate average loss over an epoch
+                    train_loss = np.average(train_losses)
+                    valid_loss = np.average(valid_losses)
+                    avg_train_losses.append(train_loss)
+                    avg_valid_losses.append(valid_loss)
 
-            mse = float(mse)
-            print('current loss: ', float(loss.data))
-            print('current test loss: ', mse)
-            print('-----------------------------------------------------------------')
-            save_checkpoint({
-                'model': model_name,
-                'best_test_loss': mse,
-                'model_state_dict': model.state_dict(),
-            }, model_name=model_name, checkpoint_dir=cur_save_path)
-            print('-----------------------------------------------------------------')
+                    epoch_len = len(str(num_epoch))
 
-            Result[model_name].append(mse)
-            # #
-            with open(save_path + '/result_ivc_50.json', 'w') as fp:
-                json.dump(Result, fp)
+                    print_msg = (f'[{epoch:>{epoch_len}}/{num_epoch:>{epoch_len}}] ' +
+                                 f'train_loss: {train_loss:.5f} ' +
+                                 f'valid_loss: {valid_loss:.5f}')
+
+                    print(print_msg)
+
+                    # clear lists to track next epoch
+                    train_losses = []
+                    valid_losses = []
+
+                    # early_stopping needs the validation loss to check if it has decresed,
+                    # and if it has, it will make a checkpoint of the current model
+                    early_stopping(valid_loss, model)
+
+                    if early_stopping.early_stop:
+                        print("Early stopping")
+                        break
+
+                    if epoch % verbose == 0:
+                        print('current epoch: ', epoch)
+                        print('loss: ', loss.data)
+                        print('factual_loss: ', factual_loss.data)
+                        print('treatment_loss: ', treatment_loss.data)
+                        print('discrepancy_loss: ', discrepancy_loss.data)
+                        print("imbalance_loss", imbalance_loss.data)
+
+                # t_grid_hat, mse = curve(model, test_matrix, t_grid)
+                t_grid_hat, mse, mise = curve(model, test_matrix, t_grid, t_grid_mise[:t_grid.shape[1], :])
+
+                mse = float(mse)
+                mise = float(mise)
+
+                print('current loss: ', float(loss.data))
+                print('current test loss: ', mse)
+                print('current test mise loss: ', mise)
+
+                print('-----------------------------------------------------------------')
+                save_checkpoint({
+                    'model': model_name,
+                    'best_test_loss': mse,
+                    'best_test_mise_loss': mise,
+                    'model_state_dict': model.state_dict(),
+                }, model_name=model_name + "_AMSE_MISE", checkpoint_dir=cur_save_path)
+                print('-----------------------------------------------------------------')
+
+                Result[model_name].append(mse)
+                Result[model_name + "mise"].append(mise)
+
+        with open(save_path + '/result_ivc_50_AMSE_MISE.json', 'w') as fp:
+            json.dump(Result, fp)

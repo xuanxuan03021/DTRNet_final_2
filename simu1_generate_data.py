@@ -34,7 +34,7 @@ if __name__ == "__main__":
         if not os.path.exists(data_path):
             os.makedirs(data_path)
 
-        train_matrix, test_matrix, t_grid = simu_data1(500, 200)
+        train_matrix, test_matrix, t_grid, t_grid_mise = simu_data1(500, 200)
 
         data_file = os.path.join(data_path, 'train.txt')
         np.savetxt(data_file, train_matrix.numpy())
@@ -42,3 +42,5 @@ if __name__ == "__main__":
         np.savetxt(data_file, test_matrix.numpy())
         data_file = os.path.join(data_path, 't_grid.txt')
         np.savetxt(data_file, t_grid.numpy())
+        data_file = os.path.join(data_path, 't_grid_mise.txt')
+        np.savetxt(data_file, t_grid_mise.numpy())
