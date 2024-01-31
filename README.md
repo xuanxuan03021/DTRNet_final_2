@@ -19,7 +19,7 @@ python simu1_generate_data.py
 -- train and evaluating the methods
 
 
-python DBRNet_main.py
+python DTRNet_main.py
 
 
 ## To run the experiment with ihdp data:
@@ -29,7 +29,7 @@ python ihdp_generate_data.py
 
 -- train and evaluating the methods
 
-python DBRNet_ihdp.py
+python DTRNet_ihdp.py
 
 ## To run the experiment with news data:
 -- generate ihdp data
@@ -38,7 +38,7 @@ python news_generate_data.py
 
 -- train and evaluating the methods
 
-python DBRNet_news.py
+python DTRNet_news.py
 
 #To plot the disentangle plot 
 
