@@ -46,3 +46,21 @@ python DTRNet_news.py
 To control the number of dataset that you want to run, adjust num_dataset in argparse in the file.
 
 ![disentangled representation](./blue_tsne.png)
+
+# Baselines
+
+For most of the baselines in the paper, we used the code released at https://github.com/lushleaf/varying-coefficient-net-with-functional-tr and https://github.com/hlzhang109/TransTEE.
+
+
+
+# Citation
+
+    @article{
+    anonymous2024dtrnet,
+    title={{DTRN}et: Precisely Correcting Selection Bias in Individual-Level Continuous Treatment Estimation through Reweighted Disentangled Representation},
+    author={Anonymous},
+    journal={Submitted to Transactions on Machine Learning Research},
+    year={2024},
+    url={https://openreview.net/forum?id=1ZTfzA9bXw},
+    note={Under review}
+    }
