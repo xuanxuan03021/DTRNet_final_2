@@ -8,7 +8,7 @@ import json
 import time
 import matplotlib.pyplot as plt
 
-from model import Vcnet
+from model import DBRNet
 from data import get_iter
 from eval import curve
 from sklearn.manifold import TSNE
@@ -91,8 +91,8 @@ if __name__ == "__main__":
             cfg = [(100, 50, 1, 'relu'), (50, 1, 1, 'id')]
             degree = 2
             knots = [0.33, 0.66]
-            model_initial = Vcnet(cfg_density, num_grid, cfg, degree, knots).cuda()
-            model_trained = Vcnet(cfg_density, num_grid, cfg, degree, knots).cuda()
+            model_initial = DBRNet(cfg_density, num_grid, cfg, degree, knots).cuda()
+            model_trained = DBRNet(cfg_density, num_grid, cfg, degree, knots).cuda()
 
 
         if model_name == 'Vcnet_disentangled':

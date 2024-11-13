@@ -222,6 +222,7 @@ if __name__ == "__main__":
                     loss,factual_loss,treatment_loss,discrepancy_loss,imbalance_loss = criterion(out, y, alpha=alpha, beta=beta,gamma=gamma)
                     loss.backward()
                     optimizer.step()
+                    train_losses.append(loss.item())
 
                 model.eval()  # prep model for evaluation
                 for idx, (inputs, y) in enumerate(val_loader):
@@ -234,7 +235,7 @@ if __name__ == "__main__":
                     loss,factual_loss,treatment_loss,discrepancy_loss,imbalance_loss = criterion(out, y, alpha=alpha, beta=beta,gamma=gamma)
 
                     # record validation loss
-                    # valid_losses.append(loss.item())
+                    valid_losses.append(loss.item())
                 # print training/validation statistics
                 # calculate average loss over an epoch
                 train_loss = np.average(train_losses)

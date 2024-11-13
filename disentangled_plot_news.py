@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.manifold import TSNE
 import seaborn as sns
-from model import Vcnet
+from model import DBRNet
 from data import get_iter
 from eval import curve
 
@@ -92,8 +92,8 @@ if __name__ == "__main__":
             cfg = [(100, 50, 1, 'relu'), (50, 1, 1, 'id')]
             degree = 2
             knots = [0.33, 0.66]
-            model_initial = Vcnet(cfg_density, num_grid, cfg, degree, knots).cuda()
-            model_trained = Vcnet(cfg_density, num_grid, cfg, degree, knots).cuda()
+            model_initial = DBRNet(cfg_density, num_grid, cfg, degree, knots).cuda()
+            model_trained = DBRNet(cfg_density, num_grid, cfg, degree, knots).cuda()
 
         if model_name == 'Vcnet_disentangled':
             init_lr = 0.00001
@@ -123,7 +123,7 @@ if __name__ == "__main__":
             model_trained._initialize_weights()
 
             # to load
-            checkpoint = torch.load('logs/news/eval/' + str(_) + '/Vcnet_disentangled_ckpt.pth.tar')
+            checkpoint = torch.load('logs/news/eval/' + str(_) + '/Vcnet_disentangled_AMSE_MISE_test_1_ckpt.pth.tar')
             model_trained.load_state_dict(checkpoint['model_state_dict'])
 
 

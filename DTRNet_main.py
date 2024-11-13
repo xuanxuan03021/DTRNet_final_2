@@ -143,6 +143,8 @@ if __name__ == "__main__":
     Result = {}
     for model_name in [ 'Vcnet_disentangled']:
         Result[model_name]=[]
+        Result[model_name + "mise"] = []
+
         if model_name == 'Vcnet_disentangled':
             cfg_density = [(6, 50, 1, 'relu'), (50, 50, 1, 'relu')]
             num_grid = 10
