@@ -40,9 +40,12 @@ python news_generate_data.py
 
 python DTRNet_news.py
 
-#To plot the disentangle plot 
+# To plot the disentangle plot 
 
-##Tips:
+The disentangled_plot_news.py and disentangled_plot_ihdp.py scripts are for generating Figure 5, while disentangled_plot_main.py is for Figure 4. Please note that the code is provided as an example for plotting; you will need to replace the model path with your own trained model path in the files. Feel free to experiment with different combinations of x and y choices.
+
+## Tips:
+
 To control the number of dataset that you want to run, adjust num_dataset in argparse in the file.
 
 ![disentangled representation](./blue_tsne.png)
