@@ -61,7 +61,7 @@ For most of the baselines in the paper, we used the code released at https://git
     @article{
     anonymous2024dtrnet,
     title={{DTRN}et: Precisely Correcting Selection Bias in Individual-Level Continuous Treatment Estimation through Reweighted Disentangled Representation},
-    author={Anonymous},
+    author={Hu, Mengxuan and Chu, Zhixuan and Li, Sheng},
     journal={Transactions on Machine Learning Research},
     year={2024},
     url={https://openreview.net/forum?id=1ZTfzA9bXw},
