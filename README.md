@@ -3,6 +3,22 @@ We investigate the problem of generating appropriate disentangled representation
  
 ![model structure](./model_structure_2.png)
 
+## Environment (conda)
+We export the conda environment used for running this code:
+
+- `environment.DTRNET_FINAL.full.yml` (recommended, fully specified)
+- `environment.DTRNET_FINAL.history.yml` (minimal, from-history)
+
+Create and activate:
+
+```bash
+conda env create -f environment.DTRNET_FINAL.full.yml
+conda activate DTRNET_FINAL
+```
+
+## Notes on GPU / CPU
+Some machines may have an older NVIDIA driver that cannot initialize CUDA with the installed PyTorch build. The training scripts in this folder were updated to **fall back to CPU** automatically when CUDA init fails.
+
 
 
 

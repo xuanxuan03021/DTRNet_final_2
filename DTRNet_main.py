@@ -14,6 +14,24 @@ from eval import curve
 import argparse
 from pytorchtools import EarlyStopping
 
+
+def _get_device():
+    """Pick a safe device.
+
+    Some machines report CUDA available but fail initialization due to an old driver.
+    """
+    if not torch.cuda.is_available():
+        return torch.device("cpu")
+    try:
+        torch.zeros(1).cuda()
+        return torch.device("cuda")
+    except Exception as e:
+        print(f"[WARN] CUDA init failed ({e}). Falling back to CPU.")
+        return torch.device("cpu")
+
+
+DEVICE = _get_device()
+
 def adjust_learning_rate(optimizer, init_lr, epoch):
     if lr_type == 'cos':  # cos without warm-up
         lr = 0.5 * init_lr * (1 + math.cos(math.pi * epoch / num_epoch))
@@ -52,7 +70,8 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
     reweight=1/(out[0]+ epsilon)
 
     '''factual loss'''
-    factual_loss=(reweight*((out[1].squeeze() - y.cuda().squeeze())**2)).mean()
+    y = y.to(DEVICE)
+    factual_loss=(reweight*((out[1].squeeze() - y.squeeze())**2)).mean()
 
     '''treatment loss'''
     treatment_loss= - alpha * torch.log(out[0] + epsilon).mean()
@@ -61,7 +80,7 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
     gamma_p = log(out[2])
     delta_p = log(out[3])
     psi_p= log(out[4])
-    criterion = torch.nn.KLDivLoss(reduction="batchmean", log_target=True).cuda()
+    criterion = torch.nn.KLDivLoss(reduction="batchmean", log_target=True).to(DEVICE)
     discrepancy_loss_temp = criterion(gamma_p, delta_p)
     discrepancy_loss_temp += criterion(delta_p, psi_p)
     discrepancy_loss= beta* (1/(discrepancy_loss_temp+epsilon))
@@ -73,7 +92,7 @@ def criterion(out, y, alpha=0.5,beta=0,gamma=0.5, epsilon=1e-6):
     total_loss=factual_loss+treatment_loss+discrepancy_loss+imbalance_loss
 
 
-    return total_loss,((out[1].squeeze() - y.cuda().squeeze())**2).mean(),treatment_loss,discrepancy_loss,imbalance_loss
+    return total_loss,((out[1].squeeze() - y.squeeze())**2).mean(),treatment_loss,discrepancy_loss,imbalance_loss
 
 def criterion_TR(out, trg, y, beta=1., epsilon=1e-6):
     return beta * ((y.squeeze() - trg.squeeze()/(out[0].squeeze() + epsilon) - out[1].squeeze())**2).mean()
@@ -106,7 +125,7 @@ if __name__ == "__main__":
     parser.add_argument('--val_dir', type=str, default='dataset/simu1/tune', help='dir of eval dataset')
 
     # common
-    parser.add_argument('--num_dataset', type=int, default=50, help='num of datasets to train')
+    parser.add_argument('--num_dataset', type=int, default=20, help='num of datasets to train')
 
     # training
     parser.add_argument('--n_epochs', type=int, default=800, help='num of epochs to train')
@@ -151,7 +170,7 @@ if __name__ == "__main__":
             cfg = [(100, 50, 1, 'relu'), (50, 1, 1, 'id')]
             degree = 2
             knots = [0.33, 0.66]
-            model = DBRNet(cfg_density, num_grid, cfg, degree, knots).cuda()
+            model = DBRNet(cfg_density, num_grid, cfg, degree, knots).to(DEVICE)
             print(model)
             model._initialize_weights()
 
@@ -210,8 +229,8 @@ if __name__ == "__main__":
 
                     for idx, (inputs, y) in enumerate(train_loader):
                         start = time.time()
-                        t = inputs[:, 0].cuda()
-                        x = inputs[:, 1:].cuda()
+                        t = inputs[:, 0].to(DEVICE)
+                        x = inputs[:, 1:].to(DEVICE)
 
                         optimizer.zero_grad()
                         out = model.forward(t, x)
@@ -233,9 +252,9 @@ if __name__ == "__main__":
                     for idx, (inputs, y) in enumerate(val_loader):
                         # forward pass: compute predicted outputs by passing inputs to the model
 
-                        t = inputs[:, 0].cuda()
-                        x = inputs[:, 1:].cuda()
-                        y = y.cuda()
+                        t = inputs[:, 0].to(DEVICE)
+                        x = inputs[:, 1:].to(DEVICE)
+                        y = y.to(DEVICE)
                         out = model.forward(t, x)
                         loss, factual_loss, treatment_loss, discrepancy_loss, imbalance_loss = criterion(out, y,
                                                                                                          alpha=alpha,

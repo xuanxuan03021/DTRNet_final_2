@@ -47,6 +47,7 @@ import json
 from data import get_iter
 epsilon=1e-6
 def curve(model, test_matrix, t_grid,t_grid_mise, targetreg=None):
+    device = next(model.parameters()).device
     n_test = t_grid.shape[1]
     t_grid_hat = torch.zeros(2, n_test)
     t_grid_hat[0, :] = t_grid[0, :]
@@ -57,10 +58,11 @@ def curve(model, test_matrix, t_grid,t_grid_mise, targetreg=None):
     if targetreg is None:
         for _ in range(n_test):
             for idx, (inputs, y) in enumerate(test_loader):
-                t = inputs[:, 0].cuda()
+                inputs = inputs.to(device)
+                t = inputs[:, 0]
                 t *= 0
                 t += t_grid[0, _]
-                x = inputs[:, 1:].cuda()
+                x = inputs[:, 1:]
                 break
             out = model.forward(t, x)
             out = out[1].data.squeeze()

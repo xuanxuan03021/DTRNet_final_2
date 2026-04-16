@@ -85,8 +85,9 @@ class Dynamic_FC(nn.Module):
 
         x_feature_weight = torch.matmul(self.weight.T, x_feature.T).T # bs, outd, d
 
-        x_treat_basis = self.spb.forward(x_treat).cuda() # bs, d
-        x_treat_basis_ = torch.unsqueeze(x_treat_basis, 1).cuda()
+        # Keep tensors on the same device as inputs (CPU fallback friendly).
+        x_treat_basis = self.spb.forward(x_treat).to(x_treat.device)  # bs, d
+        x_treat_basis_ = torch.unsqueeze(x_treat_basis, 1)
 
         # x_feature_weight * x_treat_basis; bs, outd, d
         out = torch.sum(x_feature_weight * x_treat_basis_, dim=2) # bs, outd
